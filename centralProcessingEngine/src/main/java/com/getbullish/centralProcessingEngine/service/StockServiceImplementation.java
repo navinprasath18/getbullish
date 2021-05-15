@@ -63,5 +63,9 @@ public class StockServiceImplementation extends BaseServiceImpl<Stock, StockData
 
     return mapper;
   }
+  @Override
+  public List<Stock> saveall(List<Stock> data) {
+    return repo.saveAll(data);
+  }
 
 }

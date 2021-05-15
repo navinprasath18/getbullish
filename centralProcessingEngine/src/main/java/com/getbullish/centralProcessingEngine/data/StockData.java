@@ -5,7 +5,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class StockData extends DataIdentity  {
+public class StockData extends DataIdentity {
 
   /**
    * 
@@ -14,5 +14,7 @@ public class StockData extends DataIdentity  {
   String sector;
   String symbol;
   String security;
+  String series;
+  String isin_code;
 
 }

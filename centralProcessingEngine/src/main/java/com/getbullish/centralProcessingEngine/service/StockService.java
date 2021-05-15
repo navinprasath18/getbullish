@@ -10,4 +10,6 @@ public interface StockService extends BaseService<Stock, StockData> {
 
   void create();
 
+  List<Stock> saveall(List<Stock> data);
+
 }

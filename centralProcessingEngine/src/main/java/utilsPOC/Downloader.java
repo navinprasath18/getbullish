@@ -1,4 +1,4 @@
-package downloader;
+package utilsPOC;
 
 import java.io.BufferedInputStream;
 import java.io.FileOutputStream;

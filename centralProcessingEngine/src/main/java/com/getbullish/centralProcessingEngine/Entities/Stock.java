@@ -35,4 +35,7 @@ public class Stock extends EntityIdentity {
   
   @Column(name = "series")
   String Series;
+  
+  @Column(name = "isincode")
+  String isin_code;
 }

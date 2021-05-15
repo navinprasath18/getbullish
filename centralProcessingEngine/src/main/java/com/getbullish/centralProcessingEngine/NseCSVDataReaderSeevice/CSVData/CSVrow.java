@@ -1,7 +1,6 @@
 package com.getbullish.centralProcessingEngine.NseCSVDataReaderSeevice.CSVData;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,10 +8,10 @@ import lombok.Setter;
 @Setter
 public class CSVrow {
 
-  List<Field> fields = new ArrayList<Field>();
+  HashMap<Integer, String> fields = new HashMap<Integer, String>();
 
-  public void getfield(int fieldNUmber) {
-
+  public void addfields(int field, String fieldvalue) {
+    this.fields.put(field, fieldvalue);
   }
 
 }

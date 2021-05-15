@@ -12,10 +12,9 @@ import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.getbullish.centralProcessingEngine.data.NiftyList;
 import com.getbullish.centralProcessingEngine.httpClient.nseclient.NSEclient;
-import lombok.extern.slf4j.Slf4j;
 
 @Service
-@Slf4j
+// @Slf4j
 public class IndexService {
   @Autowired
   NSEclient client;
@@ -29,9 +28,9 @@ public class IndexService {
     try {
       HttpResponse<String> response = client.getNifty200();
       data = mapper.readValue(response.body(), NiftyList.class);
-      log.info(response.toString());
+      // log.info(response.toString());
     } catch (IOException | InterruptedException e) {
-      log.error("okhttp error");
+      // log.error("okhttp error");
     }
     try {
       FileOutputStream fos = new FileOutputStream("nifty50 -" + LocalDateTime.now());

@@ -1,0 +1,27 @@
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<!--WARNING : PLEASE DO NOT CHANGE THE ORDER OF EXSTING ENTRIES, APPEND 
+		NEW ONES AT THE END -->
+
+
+
+	<include file="schema/CreateSchema.xml"
+		relativeToChangelogFile="true" />
+
+
+
+
+	<include file="tables/CreateHistoryTable.xml"
+		relativeToChangelogFile="true" />
+	<include file="tables/CreateLoadedFileDetailsTable.xml"
+		relativeToChangelogFile="true" />
+	<include file="tables/CreateSectorTable.xml"
+		relativeToChangelogFile="true" />
+	<include file="tables/CreateStockTable.xml"
+		relativeToChangelogFile="true" />
+
+</databaseChangeLog>

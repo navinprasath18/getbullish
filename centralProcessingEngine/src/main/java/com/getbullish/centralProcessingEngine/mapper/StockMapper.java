@@ -5,8 +5,8 @@ import org.mapstruct.Mapping;
 import com.getbullish.centralProcessingEngine.Entities.Stock;
 import com.getbullish.centralProcessingEngine.data.StockData;
 
-@Mapper
-public interface StockMapper {
+@Mapper(componentModel = "spring")
+public interface StockMapper extends BaseIdentityMapper<Stock, StockData> {
   @Mapping(source = "sector.name", target = "sector")
   StockData toData(Stock entity);
 

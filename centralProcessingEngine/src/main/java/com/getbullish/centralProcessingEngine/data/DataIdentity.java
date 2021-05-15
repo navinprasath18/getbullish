@@ -1,9 +1,16 @@
 package com.getbullish.centralProcessingEngine.data;
 
+import java.io.Serializable;
 import java.util.UUID;
+import lombok.Data;
 
-public class DataIdentity {
+@Data
+public class DataIdentity implements Serializable {
 
-  UUID id;
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
+  private UUID id;
 
 }

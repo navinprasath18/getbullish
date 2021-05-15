@@ -6,6 +6,10 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class StockHistoryData extends DataIdentity {
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
   private float priority;
   private String symbol;
   private String identifier;

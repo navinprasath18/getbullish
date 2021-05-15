@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import com.getbullish.centralProcessingEngine.Entities.Stock;
 import com.getbullish.centralProcessingEngine.config.URLutils;
-import com.getbullish.centralProcessingEngine.service.StockService;
+import com.getbullish.centralProcessingEngine.data.StockData;
+import com.getbullish.centralProcessingEngine.service.StockServiceImplementation;
 
 @RestController
 @RequestMapping(URLutils.api + URLutils.stockurl)
@@ -18,7 +18,7 @@ public class StockController {
 
 
   @Autowired
-  StockService service;
+  StockServiceImplementation service;
 
   @PostMapping
   @ResponseStatus(HttpStatus.OK)
@@ -30,7 +30,7 @@ public class StockController {
 
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
-  public List<Stock> getAllSectors() {
+  public List<StockData> getAllSectors() {
     return service.getAllStocks();
   }
 

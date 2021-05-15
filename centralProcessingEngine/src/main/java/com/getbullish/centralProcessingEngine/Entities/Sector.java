@@ -18,10 +18,11 @@ public class Sector extends EntityIdentity {
    * 
    */
   private static final long serialVersionUID = 1L;
+
   @Column(name = "name", nullable = false, unique = true)
-  String name;
+  private String name;
 
   @Column(name = "symbol", nullable = false, unique = true)
-  String symbol;
+  private String symbol;
 
 }

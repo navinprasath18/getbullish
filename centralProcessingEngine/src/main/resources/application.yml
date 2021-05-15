@@ -23,3 +23,5 @@ spring:
       change-log: classpath:/databaseScripts/DatabaseScript.xml
       liquibase-schema: public
       default-schema: stockmarketdata
+server: 
+   port: 5555

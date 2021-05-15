@@ -25,7 +25,10 @@
 				<constraints nullable="false" />
 			</column>
 		</createTable>
-
+		<addUniqueConstraint columnNames="name"
+			constraintName="uniquee_name" tableName="sector" />
+		<addUniqueConstraint columnNames="symbol"
+			constraintName="uniquee_sectorsymbol" tableName="sector" />
 	</changeSet>
 
 </databaseChangeLog>

@@ -1,8 +1,8 @@
 package com.getbullish.centralProcessingEngine.Entities;
 
 import java.util.Date;
-import java.util.UUID;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,6 +12,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString(includeFieldNames = true)
+@Entity
 public class History extends EntityIdentity {
 
   /**
@@ -56,7 +57,7 @@ public class History extends EntityIdentity {
   long low52week;
 
 
-  UUID stockid;
+  Stock stockid;
   Date date;
 
 }

@@ -21,7 +21,24 @@
 			<column name="symbol" type="varchar(30)">
 				<constraints nullable="false" />
 			</column>
+
+			<column name="sector" type="UUID">
+				<constraints nullable="false" />
+			</column>
 		</createTable>
+
+		<addForeignKeyConstraint
+			baseColumnNames="sector" baseTableName="stock"
+			constraintName="fk_sector" referencedColumnNames="id"
+			referencedTableName="sector" />
+
+		<addUniqueConstraint columnNames="symbol"
+			constraintName="uniquee_symbol" tableName="stock" />
+
+		<addUniqueConstraint columnNames="security"
+			constraintName="uniquee_security" tableName="stock" />
+
+
 
 	</changeSet>
 

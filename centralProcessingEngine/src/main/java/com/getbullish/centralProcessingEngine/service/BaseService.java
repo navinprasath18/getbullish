@@ -11,7 +11,6 @@ public interface BaseService<E extends EntityIdentity> {
   public E getEntity(UUID id);
 
 
-
   public Boolean exist(UUID id);
 
 

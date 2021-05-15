@@ -1,9 +1,11 @@
 package com.getbullish.centralProcessingEngine.service;
 
 import java.util.List;
+import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.getbullish.centralProcessingEngine.Entities.Sector;
+import com.getbullish.centralProcessingEngine.repos.Baserepo;
 import com.getbullish.centralProcessingEngine.repos.SectorRepo;
 
 @Service
@@ -21,6 +23,12 @@ public class SectorService extends BaseServiceImpl<Sector> {
 
   public List<Sector> getAllSectors() {
     return list();
+  }
+
+  @Override
+  public Baserepo<Sector, UUID> getBaseRepository() {
+
+    return repo;
   }
 
 }

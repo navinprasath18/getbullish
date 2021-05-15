@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.UUID;
 import javax.persistence.EntityNotFoundException;
 import com.getbullish.centralProcessingEngine.Entities.EntityIdentity;
-import com.getbullish.centralProcessingEngine.repos.Baserepo;
 
 public abstract class BaseServiceImpl<E extends EntityIdentity> implements BaseService<E> {
 
@@ -20,8 +19,6 @@ public abstract class BaseServiceImpl<E extends EntityIdentity> implements BaseS
   public List<E> list() {
     return this.getBaseRepository().findAll();
   }
-  
-  
 
 
 
@@ -37,12 +34,6 @@ public abstract class BaseServiceImpl<E extends EntityIdentity> implements BaseS
 
   }
 
-
-
-  public Baserepo<E, UUID> getBaseRepository() {
-
-    return null;
-  }
 
 
 }

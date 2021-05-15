@@ -7,7 +7,7 @@ spring:
       properties:
          hibernate:
             dialect: org.hibernate.dialect.PostgreSQL95Dialect
-            default_schema: auditlog
+            default_schema: stockmarketdata
             jdbc:
                time_zone: UTC
                lob:
@@ -23,3 +23,5 @@ spring:
       change-log: classpath:/databaseScripts/DatabaseScript.xml
       liquibase-schema: public
       default-schema: stockmarketdata
+server: 
+   port: 5555

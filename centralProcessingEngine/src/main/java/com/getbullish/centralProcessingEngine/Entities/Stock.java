@@ -32,4 +32,7 @@ public class Stock extends EntityIdentity {
 
   @Column(name = "security")
   String security;
+  
+  @Column(name = "series")
+  String Series;
 }

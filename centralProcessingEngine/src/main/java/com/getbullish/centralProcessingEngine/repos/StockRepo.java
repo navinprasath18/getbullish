@@ -7,5 +7,10 @@ import com.getbullish.centralProcessingEngine.Entities.Stock;
 @Repository
 public interface StockRepo extends Baserepo<Stock, UUID> {
 
+  public Stock findBySymbolIgnoreCase(String symbol);
+
+  public Stock findBySecurityIgnoreCase(String sec);
+
+
 
 }

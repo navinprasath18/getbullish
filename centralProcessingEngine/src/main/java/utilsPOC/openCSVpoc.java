@@ -5,7 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.Map;
 import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderHeaderAware;
 import com.opencsv.exceptions.CsvValidationException;
 
 public class openCSVpoc {
@@ -13,7 +15,8 @@ public class openCSVpoc {
 
   public static void main(String args[]) {
 
-    read();
+    // read();
+    readasMap();
 
   }
 
@@ -30,8 +33,8 @@ public class openCSVpoc {
         lineNumber++;
         System.out.print("Line # " + lineNumber + " : ");
         for (var e : nextLine) {
-        
-          System.out.format("%-40s", e);
+
+          System.out.format("%-20s", e);
         }
         System.out.println("");
       }
@@ -53,6 +56,20 @@ public class openCSVpoc {
     pathnames = f.list();
 
     System.out.println(Arrays.toString(pathnames));
+  }
+
+
+  public static void readasMap() {
+
+    var fileName = "/users/i355696/Documents//NSE-DATA/SECTORWISE/ind_nifty500list.csv";
+    try {
+      Map<String, String> values = new CSVReaderHeaderAware(new FileReader(fileName)).readMap();
+      System.out.print(values);
+    } catch (CsvValidationException | IOException e) {
+      System.out.print("error");
+    }
+
+
   }
 
 

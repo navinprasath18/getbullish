@@ -2,6 +2,8 @@ package com.getbullish.centralProcessingEngine.Entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +21,10 @@ public class Stock extends EntityIdentity {
    */
   private static final long serialVersionUID = 1L;
 
-  @Column(name = "sector")
+
+
+  @OneToOne
+  @JoinColumn(name = "sector", nullable = false)
   Sector sector;
 
   @Column(name = "symbol")

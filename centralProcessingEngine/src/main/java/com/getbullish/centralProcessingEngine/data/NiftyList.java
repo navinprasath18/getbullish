@@ -15,6 +15,6 @@ public class NiftyList implements Serializable {
   private String name;
   private Advance AdvanceObject;
   private String timestamp;
-  ArrayList<StockData> data = new ArrayList<StockData>();
+  ArrayList<StockHistoryData> data = new ArrayList<StockHistoryData>();
 
 }

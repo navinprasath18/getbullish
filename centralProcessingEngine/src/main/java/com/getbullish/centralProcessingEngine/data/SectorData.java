@@ -5,10 +5,6 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class StockData extends DataIdentity {
-
-  String sector;
-  String symbol;
-  String security;
+public class SectorData extends DataIdentity {
 
 }

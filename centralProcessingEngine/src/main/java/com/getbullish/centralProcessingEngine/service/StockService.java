@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.getbullish.centralProcessingEngine.Entities.Sector;
 import com.getbullish.centralProcessingEngine.Entities.Stock;
+import com.getbullish.centralProcessingEngine.mapper.StockMapper;
 import com.getbullish.centralProcessingEngine.repos.Baserepo;
 import com.getbullish.centralProcessingEngine.repos.StockRepo;
 
@@ -19,6 +20,10 @@ public class StockService extends BaseServiceImpl<Stock> {
 
   @Autowired
   SectorService sectorService;
+  
+  
+  @Autowired
+  StockMapper mapper;
 
 
   @Override

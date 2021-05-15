@@ -1,0 +1,72 @@
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<!-- Table -->
+	<changeSet author="navin_prasath" id="table_history">
+		<preConditions onError="CONTINUE" onFail="CONTINUE">
+			<not>
+				<tableExists tableName="history" />
+			</not>
+		</preConditions>
+		<createTable remarks="history" tableName="history">
+			<column name="id" type="UUID">
+				<constraints primaryKey="true"
+					primaryKeyName="pk_history" />
+			</column>
+
+
+			<column name="PREV_CL_PR" type="DECIMAL(20, 10)">
+				<constraints nullable="false" />
+			</column>
+			<column name="OPEN_PRICE" type="DECIMAL(20, 10)">
+				<constraints nullable="false" />
+			</column>
+			<column name="HIGH_PRICE" type="DECIMAL(20, 10)">
+				<constraints nullable="false" />
+			</column>
+			<column name="LOW_PRICE" type="DECIMAL(20, 10)">
+				<constraints nullable="false" />
+			</column>
+			<column name="CLOSE_PRICE" type="DECIMAL(20, 10)">
+				<constraints nullable="false" />
+			</column>
+			<column name="NET_TRDVAL" type="DECIMAL(100, 10)">
+				<constraints nullable="false" />
+			</column>
+			<column name="NET_TRDQTY" type="DECIMAL(100, 10)">
+				<constraints nullable="false" />
+			</column>
+			<column name="TRADES" type="DECIMAL(100, 10)">
+				<constraints nullable="false" />
+			</column>
+			<column name="HI_52_WK" type="DECIMAL(20, 10)">
+				<constraints nullable="false" />
+			</column>
+			<column name="LO_52_WK" type="DECIMAL(20, 10)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="IND_SEC" type="varchar(30)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="CORP_IND" type="varchar(30)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="stock" type="UUID">
+				<constraints nullable="false" />
+			</column>
+			<column name="date" type="datetime">
+				<constraints nullable="false" />
+			</column>
+
+
+		</createTable>
+
+	</changeSet>
+
+</databaseChangeLog>

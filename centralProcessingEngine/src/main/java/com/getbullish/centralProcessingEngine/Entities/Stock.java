@@ -20,7 +20,7 @@ public class Stock extends EntityIdentity {
   private static final long serialVersionUID = 1L;
 
   @Column(name = "sector")
-  String series;
+  Sector sector;
 
   @Column(name = "symbol")
   String symbol;

@@ -40,6 +40,7 @@ public class StockServiceImplementation extends BaseServiceImpl<Stock, StockData
     repo.save(stock);
   }
 
+  @Override
   public void create() {
 
     Stock stock = new Stock();
@@ -51,6 +52,7 @@ public class StockServiceImplementation extends BaseServiceImpl<Stock, StockData
     repo.save(stock);
   }
 
+  @Override
   public List<StockData> getAllStocks() {
     return listData();
   }

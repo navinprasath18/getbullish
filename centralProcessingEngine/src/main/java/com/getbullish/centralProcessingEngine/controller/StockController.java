@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import com.getbullish.centralProcessingEngine.Entities.Stock;
 import com.getbullish.centralProcessingEngine.config.URLutils;
+import com.getbullish.centralProcessingEngine.data.StockData;
 import com.getbullish.centralProcessingEngine.service.StockService;
 
 @RestController

@@ -12,4 +12,6 @@ public interface StockService extends BaseService<Stock, StockData> {
 
   List<Stock> saveall(List<Stock> data);
 
+  Stock findbySymbolAndId(String symbol, String Id);
+
 }

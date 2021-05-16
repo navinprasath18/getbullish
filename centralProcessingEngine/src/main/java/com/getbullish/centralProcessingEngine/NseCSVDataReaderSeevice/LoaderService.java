@@ -49,6 +49,8 @@ public class LoaderService {
       if (i++ == 0)
         continue;
       Map<Integer, String> fields = r.getFields();
+      if (validateField(fields))
+        continue;
       Stock stock = new Stock();
       stock.setIsincode(fields.get(5));
       stock.setSecurity(fields.get(1));
@@ -62,6 +64,14 @@ public class LoaderService {
       stocklist.add(stock);
     }
     return stockService.saveall(stocklist);
+
+  }
+
+  public Boolean validateField(Map<Integer, String> fields) {
+    Stock stock = stockService.findbySymbolAndId(fields.get(3), fields.get(5));
+    if (stock != null)
+      return true;
+    return false;
 
   }
 

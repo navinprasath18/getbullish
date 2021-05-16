@@ -79,8 +79,8 @@ public class SectorServiceImplementation extends BaseServiceImpl<Sector, SectorD
     List<String> list = sectors.getList();
     Map<String, String> map = new HashMap<String, String>();
     for (String str : list) {
-      if (str.length() > 50) {
-        map.put(str.substring(0, 20), str);
+      if (str.length() > 29) {
+        map.put(str.substring(0, 29), str);
       } else {
         map.put(str, str);
 
@@ -91,7 +91,6 @@ public class SectorServiceImplementation extends BaseServiceImpl<Sector, SectorD
   }
 
   @Override
-
   public Sector getSectorEntity(String name) {
     return repo.findByNameIgnoreCase(name);
   }

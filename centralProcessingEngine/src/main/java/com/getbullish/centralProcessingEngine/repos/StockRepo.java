@@ -13,6 +13,8 @@ public interface StockRepo extends Baserepo<Stock, UUID> {
 
   public Stock findByIsincodeIgnoreCase(String code);
 
+  public Stock findBySymbolAndIsincodeIgnoreCase(String symbol, String code);
+
 
 
 }

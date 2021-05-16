@@ -5,9 +5,11 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.getbullish.centralProcessingEngine.Entities.Sector;
 import com.getbullish.centralProcessingEngine.Entities.Stock;
 import com.getbullish.centralProcessingEngine.NseCSVDataReaderSeevice.CSVData.CSVrow;
 import com.getbullish.centralProcessingEngine.NseCSVDataReaderSeevice.CSVData.Csvfile;
+import com.getbullish.centralProcessingEngine.service.SectorService;
 import com.getbullish.centralProcessingEngine.service.StockService;
 
 @Service
@@ -15,6 +17,9 @@ public class LoaderService {
 
   @Autowired
   StockService stockService;
+
+  @Autowired
+  SectorService service;
 
 
 
@@ -48,12 +53,18 @@ public class LoaderService {
       stock.setIsincode(fields.get(5));
       stock.setSecurity(fields.get(1));
       stock.setSeries(fields.get(4));
+      Sector sec = service.getSectorEntity(fields.get(2));
+      if (sec == null) {
+        System.out.print(fields.get(2));
+      }
+      stock.setSector(sec);
       stock.setSymbol(fields.get(3));
       stocklist.add(stock);
     }
     return stockService.saveall(stocklist);
 
   }
+
 
 
 }

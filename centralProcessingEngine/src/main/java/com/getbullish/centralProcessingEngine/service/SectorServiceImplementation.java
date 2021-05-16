@@ -15,7 +15,8 @@ import com.getbullish.centralProcessingEngine.repos.Baserepo;
 import com.getbullish.centralProcessingEngine.repos.SectorRepo;
 
 @Service
-public class SectorServiceImplementation extends BaseServiceImpl<Sector, SectorData> {
+public class SectorServiceImplementation extends BaseServiceImpl<Sector, SectorData>
+    implements SectorService {
 
   @Autowired
   SectorRepo repo;
@@ -70,6 +71,7 @@ public class SectorServiceImplementation extends BaseServiceImpl<Sector, SectorD
 
   }
 
+  @Override
   public List<Sector> loadstaticdata()
 
   {
@@ -77,11 +79,21 @@ public class SectorServiceImplementation extends BaseServiceImpl<Sector, SectorD
     List<String> list = sectors.getList();
     Map<String, String> map = new HashMap<String, String>();
     for (String str : list) {
-      // if(repo.get)
-      map.put(str.substring(0, 2), str);
+      if (str.length() > 50) {
+        map.put(str.substring(0, 20), str);
+      } else {
+        map.put(str, str);
+
+      }
     }
 
     return saveSector(map);
+  }
+
+  @Override
+
+  public Sector getSectorEntity(String name) {
+    return repo.findByNameIgnoreCase(name);
   }
 
 

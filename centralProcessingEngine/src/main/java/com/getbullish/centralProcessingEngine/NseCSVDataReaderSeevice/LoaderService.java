@@ -32,18 +32,22 @@ public class LoaderService {
   public List<Stock> stockEntityprocessor(Csvfile csv) {
 
 
-    if (csv.getField().get(1) != "Company Name") {
+    if (!csv.getField().get(1).equals("Company Name")) {
       System.out.print("Field mapping error");
       return null;
     }
+    System.out.println(csv.getField());
     List<Stock> stocklist = new ArrayList<Stock>();
     List<CSVrow> row = csv.getRows();
+    int i = 0;
     for (CSVrow r : row) {
-      Map<Integer, String> fields = csv.getField();
+      if (i++ == 0)
+        continue;
+      Map<Integer, String> fields = r.getFields();
       Stock stock = new Stock();
-      stock.setIsin_code(fields.get(1));
+      stock.setIsincode(fields.get(5));
       stock.setSecurity(fields.get(1));
-      stock.setSeries(fields.get(1));
+      stock.setSeries(fields.get(4));
       stock.setSymbol(fields.get(3));
       stocklist.add(stock);
     }

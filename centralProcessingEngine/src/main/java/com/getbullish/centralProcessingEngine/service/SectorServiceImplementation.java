@@ -15,7 +15,8 @@ import com.getbullish.centralProcessingEngine.repos.Baserepo;
 import com.getbullish.centralProcessingEngine.repos.SectorRepo;
 
 @Service
-public class SectorServiceImplementation extends BaseServiceImpl<Sector, SectorData> {
+public class SectorServiceImplementation extends BaseServiceImpl<Sector, SectorData>
+    implements SectorService {
 
   @Autowired
   SectorRepo repo;

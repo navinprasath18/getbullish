@@ -11,6 +11,8 @@ public interface StockRepo extends Baserepo<Stock, UUID> {
 
   public Stock findBySecurityIgnoreCase(String sec);
 
+  public Stock findByIsincodeIgnoreCase(String code);
+
 
 
 }

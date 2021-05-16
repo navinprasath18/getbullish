@@ -1,5 +1,6 @@
 package com.getbullish.centralProcessingEngine.StaticData;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -35,6 +36,22 @@ public class LoaderService {
   }
 
 
+  public String loadAllCSVFilesInDirectory() {
+    String directory = "/users/i355696/Documents/NSE-DATA/SECTORWISE/";
+    List<String> listofcsv = getCSVlist(directory);
+    for (String csv : listofcsv) {
+      CSVreader reader = new CSVreader();
+      Csvfile file = reader.readIntoCSVobject(directory + csv);
+      stockEntityprocessor(file);
+    }
+
+    return "success";
+
+
+  }
+
+
+
   public List<Stock> stockEntityprocessor(Csvfile csv) {
 
 
@@ -59,6 +76,7 @@ public class LoaderService {
       Sector sec = service.getSectorEntity(fields.get(2));
       if (sec == null) {
         System.out.print(fields.get(2));
+        sec = service.getSectorEntity("FIND THE SECTOR");
       }
       stock.setSector(sec);
       stock.setSymbol(fields.get(3));
@@ -69,13 +87,32 @@ public class LoaderService {
   }
 
   public Boolean validateField(Map<Integer, String> fields) {
-    Stock stock = stockService.findbySymbolAndId(fields.get(3), fields.get(5));
-    if (stock != null)
+    Stock stockbysymbol = stockService.findbySymbol(fields.get(3));
+    Stock stockbyISIN = stockService.findbyISINid(fields.get(5));
+    if (stockbysymbol != null || stockbyISIN != null)
       return true;
     return false;
 
   }
 
 
+  public List<String> getCSVlist(String directory) {
+    String[] pathnames;
 
+
+    File f = new File(directory);
+
+
+    pathnames = f.list();
+
+    List<String> list = new ArrayList<String>();
+    for (String path : pathnames) {
+      String substr = path.substring(path.length() - 4);
+      if (substr.equals(".csv"))
+        list.add(path);
+    }
+
+    return list;
+
+  }
 }

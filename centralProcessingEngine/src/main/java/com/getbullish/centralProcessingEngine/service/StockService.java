@@ -14,4 +14,8 @@ public interface StockService extends BaseService<Stock, StockData> {
 
   Stock findbySymbolAndId(String symbol, String Id);
 
+  Stock findbySymbol(String namee);
+
+  Stock findbyISINid(String isinid);
+
 }

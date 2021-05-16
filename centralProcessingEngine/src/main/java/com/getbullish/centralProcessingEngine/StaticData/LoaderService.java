@@ -1,4 +1,4 @@
-package com.getbullish.centralProcessingEngine.NseCSVDataReaderSeevice;
+package com.getbullish.centralProcessingEngine.StaticData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.getbullish.centralProcessingEngine.Entities.Sector;
 import com.getbullish.centralProcessingEngine.Entities.Stock;
+import com.getbullish.centralProcessingEngine.NseCSVDataReaderSeevice.CSVreader;
 import com.getbullish.centralProcessingEngine.NseCSVDataReaderSeevice.CSVData.CSVrow;
 import com.getbullish.centralProcessingEngine.NseCSVDataReaderSeevice.CSVData.Csvfile;
 import com.getbullish.centralProcessingEngine.service.SectorService;

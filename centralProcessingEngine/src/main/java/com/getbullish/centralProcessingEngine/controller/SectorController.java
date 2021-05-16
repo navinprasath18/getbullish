@@ -35,11 +35,6 @@ public class SectorController {
 
 
 
-  @PostMapping("/loadstaticdata")
-  @ResponseStatus(HttpStatus.OK)
-  public List<Sector> loadstaticData() {
-    return service.loadstaticdata();
-
-  }
+ 
 
 }

@@ -26,7 +26,7 @@
 				<constraints nullable="false" />
 			</column>
 
-			<column name="isLoaded" type="boolean" defaultValue="false">
+			<column name="isloaded" type="boolean" defaultValue="false">
 				<constraints nullable="false" />
 			</column>
 

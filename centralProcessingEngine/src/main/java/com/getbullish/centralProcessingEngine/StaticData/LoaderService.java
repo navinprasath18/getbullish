@@ -115,4 +115,12 @@ public class LoaderService {
     return list;
 
   }
+  
+  
+  
+  public void storeHistory()
+  {
+    
+  }
+  
 }

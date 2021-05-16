@@ -9,7 +9,9 @@ public class TestCompleteLoading {
   public static void main(String args[]) {
 
 
-    readdirectory("/users/i355696/Documents/NSE-DATA/SECTORWISE");
+    // readdirectory("/users/i355696/Documents/NSE-DATA/SECTORWISE");
+
+    getFolderList();
 
   }
 
@@ -34,5 +36,23 @@ public class TestCompleteLoading {
 
     System.out.println(Arrays.toString(pathnames));
     System.out.println(pathnames);
+  }
+
+  public static void getFolderList() {
+    {
+
+      String directory = "/users/i355696/Documents/NSE-DATA/SAMPLEHISTORY/";
+      String[] pathnames;
+
+      File f = new File(directory);
+      pathnames = f.list();
+      List<String> list = new ArrayList<String>();
+
+      list.addAll(Arrays.asList(pathnames));
+
+      System.out.println(list.size());
+    }
+
+
   }
 }

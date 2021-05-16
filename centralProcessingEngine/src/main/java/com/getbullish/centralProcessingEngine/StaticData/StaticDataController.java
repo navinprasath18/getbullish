@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.getbullish.centralProcessingEngine.Entities.Sector;
+import com.getbullish.centralProcessingEngine.PopulateHistory.LoadHistoricData;
 import com.getbullish.centralProcessingEngine.config.URLutils;
 import com.getbullish.centralProcessingEngine.service.SectorService;
 
@@ -18,6 +19,8 @@ public class StaticDataController {
   LoaderService service;
   @Autowired
   SectorService sectorService;
+  @Autowired
+  LoadHistoricData historySerive;
 
   @PostMapping
   @ResponseStatus(HttpStatus.OK)
@@ -31,6 +34,13 @@ public class StaticDataController {
   @ResponseStatus(HttpStatus.OK)
   public List<Sector> loadstaticData() {
     return sectorService.loadstaticdata();
+
+  }
+
+  @PostMapping("/loadHistory")
+  @ResponseStatus(HttpStatus.OK)
+  public String loadHistory() {
+    return historySerive.load();
 
   }
 

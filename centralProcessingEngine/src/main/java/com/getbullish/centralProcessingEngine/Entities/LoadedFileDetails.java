@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Table(name = "history")
+@Table(name = "loadedfilesdata")
 @Getter
 @Setter
 @ToString(includeFieldNames = true)
@@ -25,7 +25,7 @@ public class LoadedFileDetails extends EntityIdentity {
   @Column(name = "dateloaded", nullable = false)
   Date dateloaded;
 
-  @Column(name = "isLoaded", nullable = false)
+  @Column(name = "isloaded", nullable = false)
   Boolean isLoaded;
 
 }

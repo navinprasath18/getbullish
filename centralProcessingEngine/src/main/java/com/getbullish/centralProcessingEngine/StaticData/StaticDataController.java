@@ -1,4 +1,4 @@
-package com.getbullish.centralProcessingEngine.controller;
+package com.getbullish.centralProcessingEngine.StaticData;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import com.getbullish.centralProcessingEngine.config.URLutils;
 
 @RestController
 @RequestMapping(URLutils.api + URLutils.initialData)
-public class InitialDataLoadingController {
+public class StaticDataController {
   @Autowired
   LoaderService service;
 

@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.getbullish.centralProcessingEngine.Entities.Sector;
 import com.getbullish.centralProcessingEngine.config.URLutils;
-import com.getbullish.centralProcessingEngine.service.SectorServiceImplementation;
+import com.getbullish.centralProcessingEngine.service.SectorService;
 
 @RestController
 @RequestMapping(URLutils.api + URLutils.sectorurl)
 public class SectorController {
 
   @Autowired
-  SectorServiceImplementation service;
+  SectorService service;
 
   @GetMapping
   @ResponseStatus(HttpStatus.OK)

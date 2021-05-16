@@ -27,11 +27,11 @@
 			</column>
 
 			<column name="series" type="varchar(30)">
-				<constraints nullable="false" />
+
 			</column>
 
 			<column name="isincode" type="varchar(20)">
-				<constraints nullable="false" />
+
 			</column>
 		</createTable>
 
@@ -43,8 +43,7 @@
 		<addUniqueConstraint columnNames="symbol"
 			constraintName="uniquee_symbol" tableName="stock" />
 
-		<addUniqueConstraint columnNames="security"
-			constraintName="uniquee_security" tableName="stock" />
+
 
 
 

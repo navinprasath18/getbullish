@@ -8,7 +8,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.getbullish.centralProcessingEngine.Entities.Sector;
-import com.getbullish.centralProcessingEngine.StaticDataService.LoadSectors;
+import com.getbullish.centralProcessingEngine.StaticData.LoadSectors;
 import com.getbullish.centralProcessingEngine.data.SectorData;
 import com.getbullish.centralProcessingEngine.mapper.BaseIdentityMapper;
 import com.getbullish.centralProcessingEngine.repos.Baserepo;

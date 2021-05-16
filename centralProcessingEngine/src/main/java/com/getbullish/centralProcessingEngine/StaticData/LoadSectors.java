@@ -1,4 +1,4 @@
-package com.getbullish.centralProcessingEngine.StaticDataService;
+package com.getbullish.centralProcessingEngine.StaticData;
 
 import java.util.Arrays;
 import java.util.List;

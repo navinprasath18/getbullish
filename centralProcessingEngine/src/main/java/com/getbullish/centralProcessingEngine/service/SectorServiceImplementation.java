@@ -22,7 +22,7 @@ public class SectorServiceImplementation extends BaseServiceImpl<Sector, SectorD
   SectorRepo repo;
 
 
-
+  @Override
   public void create() {
     Sector entity = new Sector();
     entity.setName("auto");
@@ -30,6 +30,7 @@ public class SectorServiceImplementation extends BaseServiceImpl<Sector, SectorD
     repo.save(entity);
   }
 
+  @Override
   public List<Sector> getAllSectors() {
     return list();
   }
@@ -52,6 +53,7 @@ public class SectorServiceImplementation extends BaseServiceImpl<Sector, SectorD
   // accepts a map<String,string> pair of sector and a short key
 
 
+  @Override
   public List<Sector> saveSector(Map<String, String> map) {
 
     List<Sector> list = new ArrayList<Sector>();

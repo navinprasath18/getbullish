@@ -18,7 +18,7 @@ public class TestCompleteLoading {
 
   public static void readdirectory(String directory) {
     String[] pathnames;
-    //
+
 
     File f = new File(directory);
 

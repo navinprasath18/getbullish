@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.getbullish.centralProcessingEngine.Entities.Sector;
-import com.getbullish.centralProcessingEngine.Entities.Stock;
 import com.getbullish.centralProcessingEngine.config.URLutils;
 import com.getbullish.centralProcessingEngine.service.SectorService;
 
@@ -22,8 +21,9 @@ public class StaticDataController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.OK)
-  public List<Stock> create() {
-    return service.loadStaticdata();
+  public String create() {
+    sectorService.loadstaticdata();
+    return service.loadAllCSVFilesInDirectory();
 
   }
 

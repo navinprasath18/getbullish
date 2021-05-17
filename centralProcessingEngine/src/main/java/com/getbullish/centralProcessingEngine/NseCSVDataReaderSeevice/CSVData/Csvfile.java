@@ -11,6 +11,9 @@ import lombok.Setter;
 @Setter
 public class Csvfile {
 
+
+  String filename;
+
   Map<Integer, String> field = new HashMap<Integer, String>();
   List<CSVrow> rows = new ArrayList<CSVrow>();
 
@@ -21,7 +24,7 @@ public class Csvfile {
   public void addrow(CSVrow row) {
     rows.add(row);
   }
- 
+
 
 
 }

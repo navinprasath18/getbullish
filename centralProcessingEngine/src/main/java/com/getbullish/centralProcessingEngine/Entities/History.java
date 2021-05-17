@@ -21,25 +21,25 @@ public class History extends EntityIdentity {
   private static final long serialVersionUID = 1L;
 
   @Column(name = "PREV_CL_PR")
-  long previousClose;
+  double previousClose;
 
   @Column(name = "OPEN_PRICE")
-  long openPrice;
+  double openPrice;
 
   @Column(name = "HIGH_PRICE")
-  long highPrice;
+  double highPrice;
 
   @Column(name = "LOW_PRICE")
-  long lowPrice;
+  double lowPrice;
 
   @Column(name = "CLOSE_PRICE")
-  long closePrice;
+  double closePrice;
 
   @Column(name = "NET_TRDVAL")
-  long netTradeValue;
+  double netTradeValue;
 
   @Column(name = "NET_TRDQTY")
-  long netTradeQuantity;
+  double netTradeQuantity;
 
   @Column(name = "IND_SEC")
   String indSEC;
@@ -48,16 +48,18 @@ public class History extends EntityIdentity {
   String corpIND;
 
   @Column(name = "TRADES")
-  long trades;
+  double trades;
 
   @Column(name = "HI_52_WK")
-  long high52week;
+  double high52week;
 
   @Column(name = "LO_52_WK")
-  long low52week;
+  double low52week;
 
-
+  @Column(name = "stock")
   Stock stockid;
+  
+  @Column(name = "date")
   Date date;
 
 }

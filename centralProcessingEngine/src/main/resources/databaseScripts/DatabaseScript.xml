@@ -11,17 +11,19 @@
 
 	<include file="schema/CreateSchema.xml"
 		relativeToChangelogFile="true" />
+	<include file="tables/CreateSectorTable.xml"
+		relativeToChangelogFile="true" />
+
+	<include file="tables/CreateStockTable.xml"
+		relativeToChangelogFile="true" />
 
 
-
+	<include file="tables/CreateLoadedFileDetailsTable.xml"
+		relativeToChangelogFile="true" />
 
 	<include file="tables/CreateHistoryTable.xml"
 		relativeToChangelogFile="true" />
-	<include file="tables/CreateLoadedFileDetailsTable.xml"
-		relativeToChangelogFile="true" />
-	<include file="tables/CreateSectorTable.xml"
-		relativeToChangelogFile="true" />
-	<include file="tables/CreateStockTable.xml"
-		relativeToChangelogFile="true" />
+
+
 
 </databaseChangeLog>

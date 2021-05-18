@@ -58,6 +58,9 @@ public class History extends EntityIdentity {
   @Column(name = "LO_52_WK")
   double low52week;
 
+  @Column(name = "series")
+  String series;
+
   @OneToOne
   @JoinColumn(name = "stock", nullable = false)
   Stock stockid;

@@ -43,6 +43,11 @@
 		<addUniqueConstraint columnNames="symbol"
 			constraintName="uniquee_symbol" tableName="stock" />
 
+		<createIndex indexName="symbol_index" tableName="stock">
+			<column name="symbol" />
+
+		</createIndex>
+
 
 
 

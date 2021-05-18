@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.getbullish.centralProcessingEngine.Entities.Sector;
-import com.getbullish.centralProcessingEngine.PopulateHistory.LoadHistoricData;
 import com.getbullish.centralProcessingEngine.config.URLutils;
+import com.getbullish.centralProcessingEngine.populateHistory.LoadHistoricData;
 import com.getbullish.centralProcessingEngine.service.SectorService;
 
 @RestController

@@ -17,7 +17,6 @@
 					primaryKeyName="pk_history" />
 			</column>
 
-
 			<column name="PREV_CL_PR" type="DECIMAL(20, 10)">
 				<constraints nullable="false" />
 			</column>
@@ -56,6 +55,10 @@
 			<column name="CORP_IND" type="varchar(30)">
 				<constraints nullable="false" />
 			</column>
+			<column name="series" type="varchar(30)">
+				<constraints nullable="false" />
+			</column>
+
 
 			<column name="stock" type="UUID">
 				<constraints nullable="false" />
@@ -63,9 +66,21 @@
 			<column name="date" type="datetime">
 				<constraints nullable="false" />
 			</column>
-
-
 		</createTable>
+
+		<addForeignKeyConstraint
+			baseColumnNames="stock" baseTableName="history"
+			constraintName="fk_stock_in_history" referencedColumnNames="id"
+			referencedTableName="stock" />
+
+		<addUniqueConstraint columnNames="stock,date,series"
+			constraintName="unique_stock_history" tableName="history" />
+
+		<createIndex indexName="history_index_stockdate"
+			tableName="history">
+			<column name="stock" />
+			<column name="date" />
+		</createIndex>
 
 	</changeSet>
 

@@ -31,6 +31,14 @@
 			</column>
 
 		</createTable>
+		
+		<addUniqueConstraint columnNames="filename"
+			constraintName="uniquefile_in_hisdata" tableName="loadedfilesdata" />
+
+		<createIndex indexName="filee_name_in_loadedfiles"
+			tableName="loadedfilesdata">
+			<column name="filename" />
+		</createIndex>
 
 	</changeSet>
 

@@ -3,6 +3,8 @@ package com.getbullish.centralProcessingEngine.Entities;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -56,9 +58,13 @@ public class History extends EntityIdentity {
   @Column(name = "LO_52_WK")
   double low52week;
 
-  @Column(name = "stock")
+  @Column(name = "series")
+  String series;
+
+  @OneToOne
+  @JoinColumn(name = "stock", nullable = false)
   Stock stockid;
-  
+
   @Column(name = "date")
   Date date;
 

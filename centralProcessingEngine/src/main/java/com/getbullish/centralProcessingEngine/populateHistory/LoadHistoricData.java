@@ -1,12 +1,15 @@
-package com.getbullish.centralProcessingEngine.PopulateHistory;
+package com.getbullish.centralProcessingEngine.populateHistory;
 
 import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
 import com.getbullish.centralProcessingEngine.Entities.History;
 import com.getbullish.centralProcessingEngine.Entities.LoadedFileDetails;
@@ -23,6 +26,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
+@EnableAsync
 public class LoadHistoricData {
 
   @Autowired
@@ -114,6 +118,8 @@ public class LoadHistoricData {
     CSVreader reader = new CSVreader();
     for (String directory : listOfCSVdirectories) {
       Csvfile file = reader.readIntoCSVobject(directory);
+      File f = new File(directory);
+      file.setFilename(f.getName());
       saveIntoRepo(file);
     }
   }
@@ -123,7 +129,7 @@ public class LoadHistoricData {
       System.out.print("Field mapping error");
       return;
     }
-    System.out.println(csv.getField());
+
     List<History> historyList = new ArrayList<History>();
     List<CSVrow> row = csv.getRows();
     int i = 0;
@@ -131,13 +137,20 @@ public class LoadHistoricData {
       if (i++ == 0)
         continue;
       Map<Integer, String> fields = r.getFields();
-      // if (validateField(fields))
-      // continue;
+
       History history = new History();
       Stock stockbysymbol = stockService.findbySymbol(fields.get(3));
       if (stockbysymbol == null)
         continue;
+      String string = "PR" + csv.getFilename().substring(2, 8);
+      System.out.println(string);
+      LoadedFileDetails loaded =
+          loadedFileRepo.findByFilenameIgnoreCase("PR" + csv.getFilename().substring(2, 8));
+      if (loaded == null)
+        continue;
+      history.setDate(calculateDate(csv.getFilename()));
       history.setStockid(stockbysymbol);
+      history.setSeries(fields.get(2).trim());
       history.setPreviousClose(Double.parseDouble(fields.get(5).trim()));
       history.setOpenPrice(Double.parseDouble(fields.get(6).trim()));
       history.setHighPrice(Double.parseDouble(fields.get(7).trim()));
@@ -150,10 +163,33 @@ public class LoadHistoricData {
       history.setTrades(Double.parseDouble(fields.get(14).trim()));
       history.setHigh52week(Double.parseDouble(fields.get(15).trim()));
       history.setLow52week(Double.parseDouble(fields.get(16).trim()));
+      historyList.add(history);
+      loaded.setIsLoaded(true);
+      loadedFileRepo.save(loaded);
     }
+    try {
+      historyRepo.saveAll(historyList);
+    } catch (Exception e) {
+      System.out.println("Someething went wring" + e.getMessage());
+
+    }
+    //
   }
 
   public void validateFields(Map<Integer, String> fields) {
+
+  }
+
+  public Date calculateDate(String str) {
+
+    SimpleDateFormat sdf = new SimpleDateFormat("ddmmyy");
+    Date date;
+    try {
+      date = sdf.parse(str.substring(2));
+    } catch (ParseException e) {
+      return null;
+    }
+    return date;
 
   }
 

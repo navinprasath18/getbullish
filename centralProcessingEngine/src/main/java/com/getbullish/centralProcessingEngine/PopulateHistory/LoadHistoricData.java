@@ -1,6 +1,8 @@
 package com.getbullish.centralProcessingEngine.PopulateHistory;
 
 import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -114,6 +116,8 @@ public class LoadHistoricData {
     CSVreader reader = new CSVreader();
     for (String directory : listOfCSVdirectories) {
       Csvfile file = reader.readIntoCSVobject(directory);
+      File f = new File(directory);
+      file.setFilename(f.getName());
       saveIntoRepo(file);
     }
   }
@@ -137,6 +141,7 @@ public class LoadHistoricData {
       Stock stockbysymbol = stockService.findbySymbol(fields.get(3));
       if (stockbysymbol == null)
         continue;
+      history.setDate(calculateDate(csv.getFilename()));
       history.setStockid(stockbysymbol);
       history.setPreviousClose(Double.parseDouble(fields.get(5).trim()));
       history.setOpenPrice(Double.parseDouble(fields.get(6).trim()));
@@ -150,10 +155,25 @@ public class LoadHistoricData {
       history.setTrades(Double.parseDouble(fields.get(14).trim()));
       history.setHigh52week(Double.parseDouble(fields.get(15).trim()));
       history.setLow52week(Double.parseDouble(fields.get(16).trim()));
+      historyList.add(history);
     }
+    historyRepo.saveAll(historyList);
   }
 
   public void validateFields(Map<Integer, String> fields) {
+
+  }
+
+  public Date calculateDate(String str) {
+
+    SimpleDateFormat sdf = new SimpleDateFormat("ddmmyy");
+    Date date;
+    try {
+      date = sdf.parse(str.substring(2));
+    } catch (ParseException e) {
+      return null;
+    }
+    return date;
 
   }
 

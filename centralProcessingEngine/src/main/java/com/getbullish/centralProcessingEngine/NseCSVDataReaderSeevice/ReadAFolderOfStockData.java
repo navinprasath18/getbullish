@@ -12,7 +12,7 @@ import com.getbullish.centralProcessingEngine.service.SectorService;
 import com.getbullish.centralProcessingEngine.service.StockService;
 
 public class ReadAFolderOfStockData {
-  
+
   @Autowired
   StockService stockService;
 

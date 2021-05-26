@@ -6,7 +6,7 @@ import com.getbullish.centralProcessingEngine.Entities.LoadedFileDetails;
 
 @Repository
 public interface LoadedFileRepo extends Baserepo<LoadedFileDetails, UUID> {
-  
-  
+
+
   LoadedFileDetails findByFilenameIgnoreCase(String filename);
 }

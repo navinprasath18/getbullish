@@ -1,0 +1,79 @@
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<!-- Table -->
+	<changeSet author="navin_prasath" id="table_stocksdata">
+		<preConditions onError="CONTINUE" onFail="CONTINUE">
+			<not>
+				<tableExists tableName="stocksdata" />
+			</not>
+		</preConditions>
+		<createTable remarks="stocksdata" tableName="stocksdata">
+			<column name="id" type="UUID">
+				<constraints primaryKey="true"
+					primaryKeyName="pk_stocksdata" />
+			</column>
+
+
+			<column name="stock" type="UUID">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="marketcap" type="DECIMAL(20, 10)">
+
+			</column>
+			<column name="price" type="DECIMAL(20, 10)">
+			</column>
+
+			<column name="HI_52_WK" type="DECIMAL(20, 10)">
+			</column>
+
+			<column name="LO_52_WK" type="DECIMAL(20, 10)">
+			</column>
+
+			<column name="pe" type="DECIMAL(20, 10)">
+			</column>
+
+			<column name="bookvalue" type="DECIMAL(20, 10)">
+			</column>
+
+			<column name="dividentyield" type="DECIMAL(20, 10)">
+			</column>
+
+			<column name="rose" type="DECIMAL(20, 10)">
+			</column>
+
+			<column name="roe" type="DECIMAL(20, 10)">
+			</column>
+
+			<column name="facevalue" type="DECIMAL(20, 10)">
+			</column>
+
+			<column name="gainfrom52" type="DECIMAL(20, 10)">
+			</column>
+
+			<column name="pricetobook" type="DECIMAL(20, 10)">
+			</column>
+
+			<column name="numberofscreens" type="DECIMAL(20, 10)">
+			</column>
+
+			<column name="pros" type="varchar(1000)">
+			</column>
+
+			<column name="cons" type="varchar(1000)">
+			</column>
+
+		</createTable>
+
+		<addForeignKeyConstraint
+			baseColumnNames="stock" baseTableName="stocksdata"
+			constraintName="fk_stock_data" referencedColumnNames="id"
+			referencedTableName="stock" />
+
+	</changeSet>
+
+</databaseChangeLog>

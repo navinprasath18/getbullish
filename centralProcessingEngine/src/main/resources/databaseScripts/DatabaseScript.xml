@@ -24,6 +24,15 @@
 	<include file="tables/CreateHistoryTable.xml"
 		relativeToChangelogFile="true" />
 
+	<include file="tables/CreateScreensTable.xml"
+		relativeToChangelogFile="true" />
+
+	<include file="tables/CreateGeneratedscreensTable.xml"
+		relativeToChangelogFile="true" />
+
+	<include file="tables/CreateStocksDataTable.xml"
+		relativeToChangelogFile="true" />
+
 
 
 </databaseChangeLog>

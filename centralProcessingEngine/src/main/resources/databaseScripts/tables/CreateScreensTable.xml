@@ -1,0 +1,29 @@
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<!-- Table -->
+	<changeSet author="navin_prasath" id="table_screens">
+		<preConditions onError="CONTINUE" onFail="CONTINUE">
+			<not>
+				<tableExists tableName="screens" />
+			</not>
+		</preConditions>
+		<createTable remarks="screens" tableName="screens">
+			<column name="id" type="UUID">
+				<constraints primaryKey="true"
+					primaryKeyName="pk_generatedscreens" />
+			</column>
+			<column name="screen" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+
+		<addUniqueConstraint columnNames="screen"
+			constraintName="uniquee_screen" tableName="screens" />
+
+	</changeSet>
+
+</databaseChangeLog>

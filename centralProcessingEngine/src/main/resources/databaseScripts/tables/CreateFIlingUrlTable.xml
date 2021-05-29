@@ -16,59 +16,108 @@
 				<constraints primaryKey="true"
 					primaryKeyName="pk_filingdata" />
 			</column>
-			<column name="consolidated" type="varchar(100)">
+			<column name="symbol" type="varchar(100)">
 				<constraints nullable="false" />
 			</column>
-			<column name="cumulative" type="varchar(30)">
-				<constraints nullable="false" />
-			</column>
+
+
 			<column name="companyname" type="varchar(100)">
 				<constraints nullable="false" />
 			</column>
-			<column name="audited" type="varchar(30)">
+
+			<column name="industry" type="varchar(130)">
+
+			</column>
+			<column name="audited" type="varchar(130)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="cumulative" type="varchar(30)">
 				<constraints nullable="false" />
 			</column>
 
 			<column name="indas" type="varchar(30)">
-
-			</column>
-
-
-			<column name="period" type="varchar(30)">
 				<constraints nullable="false" />
 			</column>
 
-			<column name="periodended" type="varchar(30)">
+
+			<column name="period" type="varchar(130)">
 				<constraints nullable="false" />
 			</column>
 
-			<column name="relatingtto" type="varchar(30)">
+			<column name="relatingtto" type="varchar(130)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="financialyear" type="varchar(130)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="filingdate" type="varchar(130)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="seqnumber" type="varchar(130)">
 
 			</column>
-			
-			
-			<column name="isprocessed" type="boolean">
+
+			<column name="bank" type="varchar(130)">
 
 			</column>
+
+
+			<column name="fromdate" type="varchar(130)">
+
+			</column>
+
+
+			<column name="todate" type="varchar(130)">
+
+			</column>
+
+			<column name="oldnewflag" type="varchar(130)">
+
+			</column>
+
 
 
 			<column name="url" type="varchar(500)">
+
+			</column>
+
+
+			<column name="format" type="varchar(130)">
+
+			</column>
+
+
+			<column name="resultdescription" type="varchar(130)">
+
+			</column>
+
+			<column name="resultdetaileddatalink" type="varchar(130)">
+
+			</column>
+
+			<column name="isin" type="varchar(130)">
+
+			</column>
+
+
+			<column name="consolidated" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="isprocessed" type="boolean">
 				<constraints nullable="false" />
 			</column>
 
 		</createTable>
 
 
-
-		<addUniqueConstraint columnNames="url"
-			constraintName="uniquee_url" tableName="filingdata" />
-
-
-
-
-
-
-
+		<addUniqueConstraint
+			columnNames="companyname,symbol,audited,cumulative,period,consolidated,isin,financialyear,fromdate,todate,oldnewflag"
+			constraintName="unique_in_filingdata" tableName="filingdata" />
 
 	</changeSet>
 

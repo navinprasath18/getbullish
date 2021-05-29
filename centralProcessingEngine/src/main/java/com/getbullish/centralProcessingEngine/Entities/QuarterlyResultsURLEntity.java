@@ -18,35 +18,86 @@ public class QuarterlyResultsURLEntity extends EntityIdentity {
   */
   private static final long serialVersionUID = 1L;
 
-  @Column(name = "consolidated")
-  String Consolidated;
+
+
+  @Column(name = "symbol")
+  String symbol;
+
+
+  @Column(name = "companyname", nullable = false)
+  String companyName;
+
+
+  @Column(name = "industry")
+  String industry;
 
   @Column(name = "audited")
-  String Audited;
+  String audited;
+
 
   @Column(name = "cumulative")
-  String Cumulative;
+  String cumulative;
+
+
+  @Column(name = "indas")
+  String indAs;
+
+
 
   @Column(name = "period")
   String period;
 
-
-  @Column(name = "indas")
-  String indOrNon;
-
-  @Column(name = "periodended")
-  String periodEnded;
-
   @Column(name = "relatingtto")
-  String relatingto;
+  String relatingTo;
+
+  @Column(name = "financialyear")
+  String financialYear;
+
+  @Column(name = "filingdate")
+  String filingDate;
+
+
+  @Column(name = "seqnumber")
+  String seqNumber;
+
+
+  @Column(name = "bank")
+  String bank;
+
+  @Column(name = "fromdate")
+  String fromDate;
+
+
+  @Column(name = "todate")
+  String toDate;
+
+
+  @Column(name = "oldnewflag")
+  String oldNewFlag;
+
 
   @Column(name = "url")
-  String url;
+  String xbrl;
+
+
+  @Column(name = "format")
+  String format;
+
+  @Column(name = "resultdescription")
+  String resultDescription;
+
+  @Column(name = "resultdetaileddatalink")
+  String resultDetailedDataLink;
+
+
+  @Column(name = "isin")
+  String isin;
+
+
+  @Column(name = "consolidated")
+  String consolidated;
 
   @Column(name = "isprocessed")
   boolean processed;
-
-  @Column(name = "companyname", nullable = false)
-  String companyname;
 
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.getbullish.centralProcessingEngine.config.URLutils;
 import com.getbullish.centralProcessingEngine.nseXMLparser.ApchclientTest;
 import com.getbullish.centralProcessingEngine.nseXMLparser.PopulatefromNSEurltoFilingDataURL;
+import com.getbullish.centralProcessingEngine.nseXMLparser.StoreQuartelyFIlingXMLasJSON;
 
 @RestController
 @RequestMapping(URLutils.api + URLutils.quarterlyresults)
@@ -19,6 +20,9 @@ public class QuarterlyResultsController {
 
   @Autowired
   ApchclientTest testingserv;
+
+  @Autowired
+  StoreQuartelyFIlingXMLasJSON storeXMLasJSON;
 
   @PostMapping("/load")
   @ResponseStatus(HttpStatus.OK)
@@ -35,12 +39,18 @@ public class QuarterlyResultsController {
 
   }
 
-
   @PostMapping("/getjsons")
   @ResponseStatus(HttpStatus.OK)
   public void startdownload() {
 
     testingserv.startdownload();
+  }
+
+  @PostMapping("/storeXMLasJSON")
+  @ResponseStatus(HttpStatus.OK)
+  public void storeXMLasJSON() {
+
+    storeXMLasJSON.store();
   }
 
 }

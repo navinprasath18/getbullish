@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.getbullish.centralProcessingEngine.Entities.QuarterlyResultsURLEntity;
+import com.getbullish.centralProcessingEngine.folderHandling.FoldersAndFiles;
 import com.getbullish.centralProcessingEngine.repos.QuarterlyResultsURLrepo;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -20,15 +21,28 @@ public class PopulatefromNSEurltoFilingDataURL {
   @Autowired
   QuarterlyResultsURLrepo repo;
 
-  String filedir = "/users/i355696/Documents/NSE-DATA/urlJSON/reliance.json";
-  String filedir2 = "/users/i355696/Documents/NSE-DATA/urlJSON/march2021.json";
+  @Autowired
+  FoldersAndFiles folderservice;
+
+  String folder = "/users/i355696/Documents/NSE-DATA/xml/jsons/";
 
   public void populate() {
+    List<String> dir =
+        folderservice.getlistoffilesInFolderAsDirectoriesWithAextention(folder, ".json");
+    for (String str : dir) {
+      save(str);
+    }
+
+  }
+
+
+
+  public void save(String filedir) {
 
 
     try {
       createEntitiyListfromjson(readFile(filedir));
-      createEntitiyListfromjson(readFile(filedir2));
+      log.info("------saved-----");
     } catch (IOException e) {
       log.error(e.getMessage());
     }

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.getbullish.centralProcessingEngine.config.URLutils;
+import com.getbullish.centralProcessingEngine.nseXMLparser.ApchclientTest;
 import com.getbullish.centralProcessingEngine.nseXMLparser.PopulatefromNSEurltoFilingDataURL;
 
 @RestController
@@ -15,6 +16,9 @@ public class QuarterlyResultsController {
 
   @Autowired
   PopulatefromNSEurltoFilingDataURL service;
+
+  @Autowired
+  ApchclientTest testingserv;
 
   @PostMapping("/load")
   @ResponseStatus(HttpStatus.OK)
@@ -31,5 +35,12 @@ public class QuarterlyResultsController {
 
   }
 
+
+  @PostMapping("/getjsons")
+  @ResponseStatus(HttpStatus.OK)
+  public void startdownload() {
+
+    testingserv.startdownload();
+  }
 
 }

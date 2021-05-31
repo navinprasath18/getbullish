@@ -10,6 +10,7 @@ import com.getbullish.centralProcessingEngine.config.URLutils;
 import com.getbullish.centralProcessingEngine.nseXMLparser.ApchclientTest;
 import com.getbullish.centralProcessingEngine.nseXMLparser.PopulatefromNSEurltoFilingDataURL;
 import com.getbullish.centralProcessingEngine.nseXMLparser.StoreQuartelyFIlingXMLasJSON;
+import com.getbullish.centralProcessingEngine.nseXMLparser.XMLdownloader;
 
 @RestController
 @RequestMapping(URLutils.api + URLutils.quarterlyresults)
@@ -23,6 +24,9 @@ public class QuarterlyResultsController {
 
   @Autowired
   StoreQuartelyFIlingXMLasJSON storeXMLasJSON;
+
+  @Autowired
+  XMLdownloader xmldownloader;
 
   @PostMapping("/load")
   @ResponseStatus(HttpStatus.OK)
@@ -51,6 +55,14 @@ public class QuarterlyResultsController {
   public void storeXMLasJSON() {
 
     storeXMLasJSON.store();
+  }
+
+
+  @PostMapping("/downloadXMLS")
+  @ResponseStatus(HttpStatus.OK)
+  public void xmldownloader() {
+
+    xmldownloader.startdownload();;
   }
 
 }

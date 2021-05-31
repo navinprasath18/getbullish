@@ -9,6 +9,7 @@ import org.json.XML;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.getbullish.centralProcessingEngine.Entities.QuarterlyFilingJSONEntity;
+import com.getbullish.centralProcessingEngine.folderHandling.FoldersAndFiles;
 import com.getbullish.centralProcessingEngine.repos.QuarterlyFilingRepo;
 import com.getbullish.centralProcessingEngine.repos.StockRepo;
 import com.getbullish.centralProcessingEngine.service.StockService;
@@ -32,9 +33,14 @@ public class StoreQuartelyFIlingXMLasJSON {
   @Autowired
   StockService stockserv;
 
+  @Autowired
+  FoldersAndFiles folderser;
+
 
 
   public void store() {
+    
+    var v = folderser.getlistofAllfilesInFolderAsDirectories("/users/i355696/Documents/NSE-DATA/xml/");
 
     String xml;
     try {

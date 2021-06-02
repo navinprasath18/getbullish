@@ -3,7 +3,9 @@ package com.getbullish.centralProcessingEngine.folderHandling;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -45,6 +47,21 @@ public class FoldersAndFiles {
         directories.add(directory + str);
     }
     return directories;
+
+  }
+
+
+  public Map<String, String> getlistofAllfilesInFolderAsDirectoriesWithName(String directory) {
+
+
+    List<String> list = getlistofAllfilesInFolder(directory);
+
+    Map<String, String> nameAndDir = new HashMap<String, String>();
+    for (String str : list) {
+      nameAndDir.put(str, directory + str);
+
+    }
+    return nameAndDir;
 
   }
 

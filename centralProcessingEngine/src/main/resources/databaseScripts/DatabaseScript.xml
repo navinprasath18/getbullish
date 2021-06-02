@@ -37,6 +37,7 @@
 	<include file="tables/CreateFilingUrlTable.xml"
 		relativeToChangelogFile="true" />
 
-
+	<include file="tables/CreateQuartelyFilingsTable.xml"
+		relativeToChangelogFile="true" />
 
 </databaseChangeLog>

@@ -24,4 +24,4 @@ spring:
       liquibase-schema: public
       default-schema: stockmarketdata
 server: 
-   port: 5556
+   port: 5555

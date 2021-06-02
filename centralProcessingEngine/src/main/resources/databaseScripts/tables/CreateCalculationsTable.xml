@@ -23,9 +23,9 @@
 		</createTable>
 
 		<addForeignKeyConstraint
-			baseColumnNames="sector" baseTableName="stock"
-			constraintName="fk_sector" referencedColumnNames="id"
-			referencedTableName="sector" />
+			baseColumnNames="quarterlyrecord" baseTableName="calculations"
+			constraintName="fk_quarterlyrecord" referencedColumnNames="id"
+			referencedTableName="quarterlyfinancerecords" />
 
 		<addUniqueConstraint columnNames="quarterlyrecord"
 			constraintName="uniquee_quarterlyrecord" tableName="calculations" />

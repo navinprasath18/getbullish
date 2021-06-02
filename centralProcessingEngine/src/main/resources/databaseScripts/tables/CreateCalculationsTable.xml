@@ -14,7 +14,7 @@
 		<createTable remarks="calculations"
 			tableName="calculations">
 			<column name="id" type="UUID">
-				<constraints primaryKey="true" primaryKeyName="pk_stock" />
+				<constraints primaryKey="true" primaryKeyName="pk_calculations" />
 			</column>
 			<column name="quarterlyrecord" type="UUID">
 				<constraints nullable="false" />

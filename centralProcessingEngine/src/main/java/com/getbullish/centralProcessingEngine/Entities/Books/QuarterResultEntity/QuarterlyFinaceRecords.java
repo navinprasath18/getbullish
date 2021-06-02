@@ -5,7 +5,6 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import com.getbullish.centralProcessingEngine.Entities.EntityIdentity;
 import com.getbullish.centralProcessingEngine.Entities.Stock;
@@ -18,14 +17,14 @@ import lombok.ToString;
 @Setter
 @ToString(includeFieldNames = true)
 @Entity
-public class QuarterlyFinaceRecords extends EntityIdentity{
+public class QuarterlyFinaceRecords extends EntityIdentity {
 
   /**
    * 
    */
   private static final long serialVersionUID = 1L;
 
-  @OneToMany
+
   @JoinColumn(name = "id", nullable = false)
   Stock stock;
 

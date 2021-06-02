@@ -44,6 +44,8 @@
 		relativeToChangelogFile="true" />
 
 
+	<include file="tables/CreateCalculationsTable.xml"
+		relativeToChangelogFile="true" />
 
 
 </databaseChangeLog>

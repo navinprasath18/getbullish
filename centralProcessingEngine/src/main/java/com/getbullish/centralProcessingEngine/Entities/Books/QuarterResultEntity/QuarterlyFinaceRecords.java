@@ -3,13 +3,27 @@ package com.getbullish.centralProcessingEngine.Entities.Books.QuarterResultEntit
 import java.time.Year;
 import java.util.Date;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import com.getbullish.centralProcessingEngine.Entities.EntityIdentity;
 import com.getbullish.centralProcessingEngine.Entities.Stock;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
-public class QuarterlyFinaceRecords {
+@Table(name = "quarterlyfinancerecords")
+@Getter
+@Setter
+@ToString(includeFieldNames = true)
+@Entity
+public class QuarterlyFinaceRecords extends EntityIdentity{
+
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
 
   @OneToMany
   @JoinColumn(name = "id", nullable = false)

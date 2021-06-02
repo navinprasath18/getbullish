@@ -24,6 +24,10 @@
 			</column>
 
 
+			<column name="calculations" type="UUID">
+			</column>
+
+
 			<column name="quarter" type="varchar(20)">
 				<constraints nullable="false" />
 			</column>
@@ -340,6 +344,12 @@
 		</createTable>
 
 		<addForeignKeyConstraint
+			baseColumnNames="calculations" baseTableName="quarterlyfinancerecords"
+			constraintName="fk_calculationsinquartely"
+			referencedColumnNames="id" referencedTableName="stock" />
+			
+			
+			<addForeignKeyConstraint
 			baseColumnNames="stock" baseTableName="quarterlyfinancerecords"
 			constraintName="fk_stockinquarterlyfinancerecords"
 			referencedColumnNames="id" referencedTableName="stock" />

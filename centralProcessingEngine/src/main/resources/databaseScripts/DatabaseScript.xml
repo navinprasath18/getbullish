@@ -40,4 +40,10 @@
 	<include file="tables/CreateQuartelyFilingsTable.xml"
 		relativeToChangelogFile="true" />
 
+	<include file="tables/CreateQuarterlyFInanceRecords.xml"
+		relativeToChangelogFile="true" />
+
+
+
+
 </databaseChangeLog>

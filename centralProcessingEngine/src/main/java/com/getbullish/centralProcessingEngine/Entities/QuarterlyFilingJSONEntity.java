@@ -30,4 +30,10 @@ public class QuarterlyFilingJSONEntity extends EntityIdentity {
   @Type(type = "jsonb")
   String json;
 
+
+  @Column(name = "filename")
+  @Type(type = "string")
+  String xmlfilename;
+
+
 }

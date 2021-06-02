@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Map;
 import org.json.JSONObject;
 import org.json.XML;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,34 +40,45 @@ public class StoreQuartelyFIlingXMLasJSON {
 
 
   public void store() {
-    
-    var v = folderser.getlistofAllfilesInFolderAsDirectories("/users/i355696/Documents/NSE-DATA/xml/");
 
-    String xml;
-    try {
-      xml = readFile("/users/i355696/Documents/NSE-DATA/xml/samplexml/1.xml");
-      parse(xml);
-    } catch (IOException e) {
-      System.out.print("----error------");
+
+
+    var directory = "/users/i355696/Documents/NSE-DATA/xml/xmls/";
+
+    var map = folderser.getlistofAllfilesInFolderAsDirectoriesWithName(directory);
+
+
+
+    for (Map.Entry<String, String> entry : map.entrySet()) {
+
+      String xml;
+      try {
+        xml = readFile(entry.getValue());
+        parse(xml, entry.getKey());
+      } catch (IOException e) {
+        System.out.print("----error------");
+      }
+
     }
-
-
   }
 
-  public void parse(String xml) {
+  public void parse(String xml, String filename) {
+    try {
+      JSONObject xmlJSONObj = XML.toJSONObject(xml);
+      JSONObject json = (JSONObject) xmlJSONObj.get("xbrli:xbrl");
+      JSONObject symbol = (JSONObject) json.get("in-bse-fin:Symbol");
+      QuarterlyFilingJSONEntity entity = new QuarterlyFilingJSONEntity();
 
-    JSONObject xmlJSONObj = XML.toJSONObject(xml);
-    JSONObject json = (JSONObject) xmlJSONObj.get("xbrli:xbrl");
-    JSONObject symbol = (JSONObject) json.get("in-bse-fin:Symbol");
-    QuarterlyFilingJSONEntity entity = new QuarterlyFilingJSONEntity();
+      entity.setStock(stockserv.findbySymbol(symbol.getString("content")));
+      entity.setJson(xmlJSONObj.toString());
+      entity.setXmlfilename(filename);
+      log.info("------a json processed-----");
+      repo.save(entity);
 
-    entity.setStock(stockserv.findbySymbol(symbol.getString("content")));
-    entity.setJson(xmlJSONObj.toString());
-    log.info("------a json processed-----");
-    repo.save(entity);
-
+    } catch (Exception e) {
+      log.error(e.getMessage());
+    }
   }
-
 
 
   public static String readFile(String path) throws IOException {

@@ -24,12 +24,22 @@
 			<column name="stock" type="UUID">
 				<constraints nullable="false" />
 			</column>
+
+
+			<column name="filename" type="varchar(130)">
+				<constraints nullable="false" />
+			</column>
 		</createTable>
 
 		<addForeignKeyConstraint
 			baseColumnNames="stock" baseTableName="quarterlyfilings"
 			constraintName="fk_quarterlyfilings" referencedColumnNames="id"
 			referencedTableName="stock" />
+
+		<addUniqueConstraint columnNames="filename"
+			constraintName="uniquee_quarterlyfilings"
+			tableName="quarterlyfilings" />
+
 
 
 	</changeSet>

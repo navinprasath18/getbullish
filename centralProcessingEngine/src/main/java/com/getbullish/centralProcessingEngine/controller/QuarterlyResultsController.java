@@ -62,7 +62,7 @@ public class QuarterlyResultsController {
   @ResponseStatus(HttpStatus.OK)
   public void xmldownloader() {
 
-    xmldownloader.startdownload();;
+    xmldownloader.startdownload();
   }
 
 }

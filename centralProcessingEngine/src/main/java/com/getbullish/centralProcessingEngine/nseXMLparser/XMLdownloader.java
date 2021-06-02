@@ -72,12 +72,13 @@ public class XMLdownloader {
       request.addHeader(HttpHeaders.ACCEPT_LANGUAGE, "en-US,en;q=0.9");
 
       request.addHeader(HttpHeaders.CACHE_CONTROL, "max-age=0");
+      
+      request.addHeader("if-modified-since","11 May 2020 16:44:03 GMT");
 
-
-      request.addHeader("upgrade-insecure-requests:", "1");
-      request.addHeader("cookie","_ga=GA1.2.1923734728.1620988702; _gid=GA1.2.245872412.1622198307; nseQuoteSymbols=[{\"symbol\":\"JUSTDIAL\",\"identifier\":null,\"type\":\"equity\"},{\"symbol\":\"RELIANCE\",\"identifier\":null,\"type\":\"equity\"},{\"symbol\":\"BANKNIFTY\",\"identifier\":\"OPTIDXBANKNIFTY03-06-2021PE35000.00\",\"type\":\"equity\"}]; ak_bmsc=1B6248913C662BD339408EEE2AA847F217203997407C00005196B36087B1611E~plOsbW559IxOENhQaQjln7TMzcwyHy/4eQBr1Y9CZ52RmU0lv6G7SlIclZF6NEYdhknBVjr9abYKg90YqaTEaS+QQPMTDpfWK3dFkr2psbzfKMBdUZwpaiisBpXzcLIpaby8QftR0GhZSih1PDVh5D5h9FJcUlj49yrD+lv3a4YXMOB9vxWS+gBuwJnqsa/PYKwaWeTZXSk6YkXIbMaAB0M+9YoFGbCBmNQ9iQQAC2ZqIMaN3K1kac+mtA+5fApxgY; nsit=WEMkAgMLR5iAlgfCIdA_cXxC; AKA_A2=A; _gat_UA-143761337-1=1; nseappid=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcGkubnNlIiwiYXVkIjoiYXBpLm5zZSIsImlhdCI6MTYyMjM4NzE3NCwiZXhwIjoxNjIyMzkwNzc0fQ.R-W04qqCF8v8dyQ-pZoFeBdmdAB97KAJNYScqGlX2tw; bm_sv=FCBA9FA1456222034E14BC738D83354E~c/wtoKfTqiz/png99QH0apOjN+NarIhHVPa2e7WBdIr8rssFtsC4o1mXfhMkoh6AxUqxxPszl/SablNoEt0x4I56FsAtvVz8/hzXHn/0+RHMlYVP7ML4+qv5dl2cKn0xY2U+Aw2oNROEVF/4w/aFG3ZOMgVcIm/jccQh+MBPX+8=; RT=\"z=1&dm=nseindia.com&si=beb86349-1a21-4d13-80c7-ed35ceb46502&ss=kpbb4g1b&sl=4&tt=8ib&bcn=%2F%2F684d0d3b.akstat.io%2F&ld=b8va&ul=bhvw\"");
+      request.addHeader("cookie","m_sv=8913D79D71F916FA2D7F971BBD071A9B~1mfYrSRfTxg7LMvwbPU9JZz+BktleFhOMhUrACAAm2JzaAkT2363Gf/fpAmrc/UK1zxv+zQ20cbFdUWQ/N4e/+zHyyVGWRaM8JMT+QC+vV1SPTgAhly5vc6hDqGK8qTWHPc7EY+VS2lw0v/Na2iN7I5JGQUrEqItLpBn6h0AVXU=; Domain=.nseindia.com; Path=/; Max-Age=6131; HttpOnly");
       CloseableHttpResponse downloaded = httpClient.execute(request);
       var headers = downloaded.getAllHeaders();
+      log.info(headers.toString());
       HttpEntity entity = downloaded.getEntity();
 
       String fileurl = "/users/i355696/Documents//NSE-DATA/xml/xmls/" + saveFileAs + ".xml";

@@ -1,0 +1,39 @@
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<!-- Table -->
+	<changeSet author="navin_prasath" id="table_calculations">
+		<preConditions onError="CONTINUE" onFail="CONTINUE">
+			<not>
+				<tableExists tableName="calculations" />
+			</not>
+		</preConditions>
+		<createTable remarks="calculations"
+			tableName="calculations">
+			<column name="id" type="UUID">
+				<constraints primaryKey="true" primaryKeyName="pk_calculations" />
+			</column>
+			<column name="quarterlyrecord" type="UUID">
+				<constraints nullable="false" />
+			</column>
+
+		</createTable>
+
+		<addForeignKeyConstraint
+			baseColumnNames="quarterlyrecord" baseTableName="calculations"
+			constraintName="fk_quarterlyrecord" referencedColumnNames="id"
+			referencedTableName="quarterlyfinancerecords" />
+
+		<addUniqueConstraint columnNames="quarterlyrecord"
+			constraintName="uniquee_quarterlyrecord" tableName="calculations" />
+
+
+
+
+
+	</changeSet>
+
+</databaseChangeLog>

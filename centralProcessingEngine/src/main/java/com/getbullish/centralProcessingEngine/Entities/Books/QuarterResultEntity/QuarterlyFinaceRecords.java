@@ -32,11 +32,10 @@ public class QuarterlyFinaceRecords extends EntityIdentity {
   Stock stock;
 
   @Column(name = "quarter")
-  @Enumerated(EnumType.STRING)
-  Quarter quarter;
+  String quarter;
 
   @Column(name = "year")
-  Year year;
+  String year;
 
   @Column(name = "cumulative")
   boolean cumulative;
@@ -233,7 +232,7 @@ public class QuarterlyFinaceRecords extends EntityIdentity {
 
 
   @Column(name = "symbol")
-  Double symbol;
+  String symbol;
 
 
   @Column(name = "taxexpense")

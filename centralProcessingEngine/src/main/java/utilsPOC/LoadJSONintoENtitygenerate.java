@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.json.JSONObject;
 
-public class LoadJSONintoENtityTEst {
+public class LoadJSONintoENtitygenerate {
 
   public static void main(String args[]) {
 
@@ -57,5 +57,8 @@ public class LoadJSONintoENtityTEst {
       System.out.println("");
     }
   }
+  
+  
+ 
 
 }

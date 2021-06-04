@@ -2,7 +2,6 @@ package com.getbullish.centralProcessingEngine.nseXMLparser;
 
 
 import java.lang.reflect.InvocationTargetException;
-import java.time.Year;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -65,17 +64,24 @@ public class ProcessJSONintoDBFields {
       try {
         finrec = setter(finrec, map);
       } catch (Exception e) {
-        log.error("---ERROR--- :" + e.getMessage());
+        log.error(
+            "---ERROR--- #setter :" + e.getMessage() + e.getCause() + e.getLocalizedMessage());
         continue;
       }
       finrec.setStock(stock);
       finrec = validateAndTag(finrec, map);
-//      QuarterlyFinaceRecords ispresent =
-//          repo.findByStockAndQuarterAndYearAndCumulativeAndConsolidatedAndAudited(stock,
-//              finrec.getQuarter(), finrec.getYear(), finrec.isCumulative(), finrec.isConsolidated(),
-//              finrec.isAudited());
- //     if (ispresent != null)
+      finrec.setSymbol(stock.getSymbol());
+      // QuarterlyFinaceRecords ispresent =
+      // repo.findByStockAndQuarterAndYearAndCumulativeAndConsolidatedAndAudited(stock,
+      // finrec.getQuarter(), finrec.getYear(), finrec.isCumulative(), finrec.isConsolidated(),
+      // finrec.isAudited());
+      // if (ispresent != null)
+      try {
         repo.save(finrec);
+      } catch (Exception e) {
+        log.error(
+            "skipping a recode : #save" + e.getMessage() + e.getClass().toString() + e.getCause());
+      }
     }
   }
 
@@ -109,7 +115,9 @@ public class ProcessJSONintoDBFields {
       if (value instanceof JSONObject) {
         try {
           JSONObject obj = (JSONObject) value;
-          return obj.get("content").toString();
+          String valueasstring = obj.get("content").toString();
+          // log.info(key + " has a value " + valueasstring);
+          return valueasstring;
         } catch (Exception e) {
           log.error("--Error retriving :" + key + e.getMessage());
           return "";
@@ -119,10 +127,10 @@ public class ProcessJSONintoDBFields {
 
 
 
-    } else {
-      log.error(key + " is of class " + value.getClass().toString());
+      // } else {
+      // log.error(key + " is of class " + value.getClass().toString());
     }
-    return null;
+    return "";
   }
 
 
@@ -134,7 +142,13 @@ public class ProcessJSONintoDBFields {
     ConvertUtils.register(dtConverter, Date.class);
 
     for (String str : map.keySet()) {
-      BeanUtils.setProperty(rec, str, map.get(str));
+      try {
+        var val = map.get(str);
+        if (!val.equals("0") && !(val == null) && !val.isEmpty() && !val.isBlank())
+          BeanUtils.setProperty(rec, str, map.get(str));
+      } catch (Exception e) {
+        log.error("--SETTER ERROR-- field : " + str);
+      }
     }
     return rec;
   }
@@ -142,14 +156,28 @@ public class ProcessJSONintoDBFields {
   public QuarterlyFinaceRecords validateAndTag(QuarterlyFinaceRecords finrec,
       Map<String, String> map) {
 
-    finrec.setQuarter(getquarter(map.get("reportingQuarter")));
+    finrec.setQuarter(map.get("reportingQuarter"));
 
-    finrec.setYear(Year.now());
-    finrec.setAudited(true);
-    finrec.setCumulative(true);
+    finrec.setYear(map.get("dateOfStartOfFinancialYear").substring(0, 4));
+
+    finrec.setAudited(
+        (map.get("whetherResultsAreAuditedOrUnaudited")).equalsIgnoreCase("audited") ? true
+            : false);
+    finrec.setCumulative(
+        (map.get("whetherResultsAreAuditedOrUnaudited")).equalsIgnoreCase("audited") ? true
+            : false);
+    finrec.setConsolidated(
+        (map.get("natureOfReportStandaloneConsolidated")).equalsIgnoreCase("Standalone") ? false
+            : true);
 
     return finrec;
   }
+
+  public void validate(QuarterlyFinaceRecords finrec) {
+
+  }
+
+
 
   public Quarter getquarter(String quarter) {
     switch (quarter) {
@@ -163,6 +191,13 @@ public class ProcessJSONintoDBFields {
         return Quarter.DECEMBER;
     }
     return null;
+
+  }
+
+
+  public void validated(QuarterlyFinaceRecords entity, Map<String, String> map) {
+
+
 
   }
 

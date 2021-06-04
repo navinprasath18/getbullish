@@ -32,7 +32,7 @@
 				<constraints nullable="false" />
 			</column>
 
-			<column name="year" type="varchar(120)">
+			<column name="year" type="varchar(10)">
 				<constraints nullable="false" />
 			</column>
 
@@ -361,10 +361,10 @@
 
 
 
-		<addUniqueConstraint
+		<!--addUniqueConstraint
 			columnNames="stock,cumulative,quarter,year,consolidated,audited"
 			constraintName="uniquee_quarterlyfinancerecords"
-			tableName="quarterlyfinancerecords" />
+			tableName="quarterlyfinancerecords" />-->
 
 
 

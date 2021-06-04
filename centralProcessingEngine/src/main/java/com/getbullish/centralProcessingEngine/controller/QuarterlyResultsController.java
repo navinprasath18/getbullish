@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.getbullish.centralProcessingEngine.config.URLutils;
 import com.getbullish.centralProcessingEngine.nseXMLparser.ApchclientTest;
 import com.getbullish.centralProcessingEngine.nseXMLparser.PopulatefromNSEurltoFilingDataURL;
+import com.getbullish.centralProcessingEngine.nseXMLparser.ProcessJSONintoDBFields;
 import com.getbullish.centralProcessingEngine.nseXMLparser.StoreQuartelyFIlingXMLasJSON;
 import com.getbullish.centralProcessingEngine.nseXMLparser.XMLdownloader;
 
@@ -27,6 +28,11 @@ public class QuarterlyResultsController {
 
   @Autowired
   XMLdownloader xmldownloader;
+
+
+
+  @Autowired
+  ProcessJSONintoDBFields processjsonservice;
 
   @PostMapping("/load")
   @ResponseStatus(HttpStatus.OK)
@@ -63,6 +69,14 @@ public class QuarterlyResultsController {
   public void xmldownloader() {
 
     xmldownloader.startdownload();
+  }
+
+
+  @PostMapping("/processJSON")
+  @ResponseStatus(HttpStatus.OK)
+  public void processJSON() {
+
+    processjsonservice.processJSONintoEntity();
   }
 
 }

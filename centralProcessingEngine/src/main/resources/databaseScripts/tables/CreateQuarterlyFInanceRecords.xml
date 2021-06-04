@@ -28,11 +28,11 @@
 			</column>
 
 
-			<column name="quarter" type="varchar(20)">
+			<column name="quarter" type="varchar(120)">
 				<constraints nullable="false" />
 			</column>
 
-			<column name="year" type="varchar(20)">
+			<column name="year" type="varchar(120)">
 				<constraints nullable="false" />
 			</column>
 
@@ -50,306 +50,311 @@
 			</column>
 
 
-
 			<column
-				name="BasicEarningsLossPerShareFromContinuingAndDiscontinuedOperat"
+				name="basicearningslosspersharefromcontinuinganddiscontinuedoperat"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
-			</column>
 
-
-			<column
-				name="BasicEarningsLossPerShareFromContinuingOperations"
-				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
 			</column>
 
 
 			<column
-				name="BasicEarningsLossPerShareFromDiscontinuedOperations"
+				name="basicearningslosspersharefromcontinuingoperations"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+
 			</column>
 
 
 			<column
-				name="ChangesInInventoriesOfFinishedGoodsWorkInProgressAndStockInT"
+				name="basicearningslosspersharefromdiscontinuedoperations"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
-			</column>
 
-
-			<column name="ComprehensiveIncomeForThePeriod"
-				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
 			</column>
 
 
 			<column
-				name="ComprehensiveIncomeForThePeriodAttributableToOwnersOfParent"
+				name="changesininventoriesoffinishedgoodsworkinprogressandstockint"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+
+			</column>
+
+
+			<column name="comprehensiveincomefortheperiod"
+				type="DECIMAL(20, 10)">
+
 			</column>
 
 
 			<column
-				name="ComprehensiveIncomeForThePeriodAttributableToOwnersOfParentN"
+				name="comprehensiveincomefortheperiodattributabletoownersofparent"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
-			</column>
 
-
-			<column name="CostOfMaterialsConsumed" type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
-			</column>
-
-
-			<column name="CurrentTax" type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
-			</column>
-
-
-			<column name="DateOfEndOfFinancialYear" type="datetime">
-				<constraints nullable="false" />
-			</column>
-
-
-			<column name="DateOfEndOfReportingPeriod" type="datetime">
-				<constraints nullable="false" />
-			</column>
-
-
-			<column name="DateOfStartOfFinancialYear" type="datetime">
-				<constraints nullable="false" />
-			</column>
-
-
-			<column name="DateOfStartOfReportingPeriod" type="datetime">
-				<constraints nullable="false" />
 			</column>
 
 
 			<column
-				name="DateOnWhichPriorIntimationOfTheMeetingForConsideringFinancia"
+				name="comprehensiveincomefortheperiodattributabletoownersofparentn"
+				type="DECIMAL(20, 10)">
+
+			</column>
+
+
+			<column name="costofmaterialsconsumed" type="DECIMAL(20, 10)">
+
+			</column>
+
+
+			<column name="currenttax" type="DECIMAL(20, 10)">
+
+			</column>
+
+
+			<column name="dateofendoffinancialyear" type="datetime">
+
+			</column>
+
+
+			<column name="dateofendofreportingperiod" type="datetime">
+
+			</column>
+
+
+			<column name="dateofstartoffinancialyear" type="datetime">
+
+			</column>
+
+
+			<column name="dateofstartofreportingperiod" type="datetime">
+			</column>
+
+
+			<column
+				name="dateonwhichpriorintimationofthemeetingforconsideringfinancia"
 				type="datetime">
-				<constraints nullable="false" />
+
 			</column>
 
 
-			<column name="DeferredTax" type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+			<column name="deferredtax" type="DECIMAL(20, 10)">
+
 			</column>
 
 
-			<column name="DepreciationDepletionAndAmortisationExpense"
+			<column name="depreciationdepletionandamortisationexpense"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+
 			</column>
 
 
-			<column name="DescriptionOfOtherExpenses"
+			<column name="descriptionofotherexpenses"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+
 			</column>
 
 
-			<column name="DescriptionOfPresentationCurrency"
+			<column name="descriptionofpresentationcurrency"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+
 			</column>
 
 
-			<column name="DescriptionOfSingleSegment"
+			<column name="descriptionofsinglesegment"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+
 			</column>
 
 
 			<column
-				name="DilutedEarningsLossPerShareFromContinuingAndDiscontinuedOper"
+				name="dilutedearningslosspersharefromcontinuinganddiscontinuedoper"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+
 			</column>
 
 
 			<column
-				name="DilutedEarningsLossPerShareFromContinuingOperations"
+				name="dilutedearningslosspersharefromcontinuingoperations"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+
 			</column>
 
 
 			<column
-				name="DilutedEarningsLossPerShareFromDiscontinuedOperations"
+				name="dilutedearningslosspersharefromdiscontinuedoperations"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+
 			</column>
 
 
-			<column name="EmployeeBenefitExpense" type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+			<column name="employeebenefitexpense" type="DECIMAL(20, 10)">
+
 			</column>
 
 
-			<column name="ExceptionalItemsBeforeTax"
+			<column name="exceptionalitemsbeforetax"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+
 			</column>
 
 
-			<column name="Expenses" type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+			<column name="expenses" type="DECIMAL(20, 10)">
+
 			</column>
 
 
-			<column name="FaceValueOfEquityShareCapital"
+			<column name="facevalueofequitysharecapital"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+
 			</column>
 
 
-			<column name="FinanceCosts" type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+			<column name="financecosts" type="DECIMAL(20, 10)">
+
 			</column>
 
 
-			<column name="Income" type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+			<column name="income" type="DECIMAL(20, 10)">
+
 			</column>
 
 
-			<column name="IsCompanyReportingMultisegmentOrSingleSegment"
-				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+			<column name="iscompanyreportingmultisegmentorsinglesegment"
+				type="varchar(140)">
+
 			</column>
 
 
-			<column name="LevelOfRoundingUsedInFinancialStatements"
-				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+			<column name="levelofroundingusedinfinancialstatements"
+				type="varchar(140)">
+
 			</column>
 
 
-			<column name="NatureOfReportStandaloneConsolidated"
-				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+			<column name="natureofreportstandaloneconsolidated"
+				type="varchar(140)">
+
 			</column>
 
 
 			<column
-				name="NetMovementInRegulatoryDeferralAccountBalancesRelatedToProfi"
+				name="netmovementinregulatorydeferralaccountbalancesrelatedtoprofi"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+
 			</column>
 
 
-			<column name="OtherComprehensiveIncomeNetOfTaxes"
+			<column name="othercomprehensiveincomenetoftaxes"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+
 			</column>
 
 
-			<column name="OtherExpenses" type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+			<column name="otherexpenses" type="DECIMAL(20, 10)">
+
 			</column>
 
 
-			<column name="OtherIncome" type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+			<column name="otherincome" type="DECIMAL(20, 10)">
+
 			</column>
 
 
-			<column name="PaidUpValueOfEquityShareCapital"
+			<column name="paidupvalueofequitysharecapital"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+
 			</column>
 
 
-			<column name="ProfitBeforeExceptionalItemsAndTax"
+			<column name="profitbeforeexceptionalitemsandtax"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+
 			</column>
 
 
-			<column name="ProfitBeforeTax" type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+			<column name="profitbeforetax" type="DECIMAL(20, 10)">
+
 			</column>
 
 
-			<column name="ProfitLossForPeriod" type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+			<column name="profitlossforperiod" type="DECIMAL(20, 10)">
+
 			</column>
 
 
-			<column name="ProfitLossForPeriodFromContinuingOperations"
+			<column name="profitlossforperiodfromcontinuingoperations"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+
 			</column>
 
 
-			<column name="ProfitLossFromDiscontinuedOperationsAfterTax"
+			<column name="profitlossfromdiscontinuedoperationsaftertax"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+
 			</column>
 
 
-			<column name="ProfitLossFromDiscontinuedOperationsBeforeTax"
+			<column name="profitlossfromdiscontinuedoperationsbeforetax"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+
 			</column>
 
 
-			<column name="PurchasesOfStockInTrade" type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+			<column name="purchasesofstockintrade" type="DECIMAL(20, 10)">
+
 			</column>
 
 
-			<column name="ReportingQuarter" type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+			<column name="reportingquarter" type="DECIMAL(20, 10)">
+
 			</column>
 
 
-			<column name="RevenueFromOperations" type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+			<column name="revenuefromoperations" type="DECIMAL(20, 10)">
+
 			</column>
 
 
 			<column
-				name="ShareOfProfitLossOfAssociatesAndJointVenturesAccountedForUsi"
+				name="shareofprofitlossofassociatesandjointventuresaccountedforusi"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+
 			</column>
 
 
-			<column name="Symbol" type="varchar(30)">
-				<constraints nullable="false" />
+			<column name="symbol" type="varchar(30)">
+
 			</column>
 
 
-			<column name="TaxExpense" type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+			<column name="taxexpense" type="DECIMAL(20, 10)">
+
 			</column>
 
 
-			<column name="TaxExpenseOfDiscontinuedOperations"
+			<column name="taxexpenseofdiscontinuedoperations"
 				type="DECIMAL(20, 10)">
-				<constraints nullable="false" />
+
 			</column>
 
 
-			<column name="WhetherResultsAreAuditedOrUnaudited"
+			<column name="whetherresultsareauditedorunaudited"
 				type="varchar(30)">
-				<constraints nullable="false" />
+
 			</column>
+
+
+
+
+
+
 		</createTable>
 
 		<addForeignKeyConstraint
-			baseColumnNames="calculations" baseTableName="quarterlyfinancerecords"
-			constraintName="fk_calculationsinquartely"
-			referencedColumnNames="id" referencedTableName="stock" />
-			
-			
-			<addForeignKeyConstraint
+			baseColumnNames="calculations"
+			baseTableName="quarterlyfinancerecords"
+			constraintName="fk_calculationsinquartely" referencedColumnNames="id"
+			referencedTableName="stock" />
+
+
+		<addForeignKeyConstraint
 			baseColumnNames="stock" baseTableName="quarterlyfinancerecords"
 			constraintName="fk_stockinquarterlyfinancerecords"
 			referencedColumnNames="id" referencedTableName="stock" />

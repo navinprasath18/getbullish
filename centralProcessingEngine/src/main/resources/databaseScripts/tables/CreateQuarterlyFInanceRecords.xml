@@ -52,58 +52,58 @@
 
 			<column
 				name="basicearningslosspersharefromcontinuinganddiscontinuedoperat"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
 			<column
 				name="basicearningslosspersharefromcontinuingoperations"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
 			<column
 				name="basicearningslosspersharefromdiscontinuedoperations"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
 			<column
 				name="changesininventoriesoffinishedgoodsworkinprogressandstockint"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
 			<column name="comprehensiveincomefortheperiod"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
 			<column
 				name="comprehensiveincomefortheperiodattributabletoownersofparent"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
 			<column
 				name="comprehensiveincomefortheperiodattributabletoownersofparentn"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
-			<column name="costofmaterialsconsumed" type="DECIMAL(20, 10)">
+			<column name="costofmaterialsconsumed" type="decimal">
 
 			</column>
 
 
-			<column name="currenttax" type="DECIMAL(20, 10)">
+			<column name="currenttax" type="decimal">
 
 			</column>
 
@@ -134,84 +134,84 @@
 			</column>
 
 
-			<column name="deferredtax" type="DECIMAL(20, 10)">
+			<column name="deferredtax" type="decimal">
 
 			</column>
 
 
 			<column name="depreciationdepletionandamortisationexpense"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
 			<column name="descriptionofotherexpenses"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
 			<column name="descriptionofpresentationcurrency"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
 			<column name="descriptionofsinglesegment"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
 			<column
 				name="dilutedearningslosspersharefromcontinuinganddiscontinuedoper"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
 			<column
 				name="dilutedearningslosspersharefromcontinuingoperations"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
 			<column
 				name="dilutedearningslosspersharefromdiscontinuedoperations"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
-			<column name="employeebenefitexpense" type="DECIMAL(20, 10)">
+			<column name="employeebenefitexpense" type="decimal">
 
 			</column>
 
 
 			<column name="exceptionalitemsbeforetax"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
-			<column name="expenses" type="DECIMAL(20, 10)">
+			<column name="expenses" type="decimal">
 
 			</column>
 
 
 			<column name="facevalueofequitysharecapital"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
-			<column name="financecosts" type="DECIMAL(20, 10)">
+			<column name="financecosts" type="decimal">
 
 			</column>
 
 
-			<column name="income" type="DECIMAL(20, 10)">
+			<column name="income" type="decimal">
 
 			</column>
 
@@ -236,85 +236,85 @@
 
 			<column
 				name="netmovementinregulatorydeferralaccountbalancesrelatedtoprofi"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
 			<column name="othercomprehensiveincomenetoftaxes"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
-			<column name="otherexpenses" type="DECIMAL(20, 10)">
+			<column name="otherexpenses" type="decimal">
 
 			</column>
 
 
-			<column name="otherincome" type="DECIMAL(20, 10)">
+			<column name="otherincome" type="decimal">
 
 			</column>
 
 
 			<column name="paidupvalueofequitysharecapital"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
 			<column name="profitbeforeexceptionalitemsandtax"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
-			<column name="profitbeforetax" type="DECIMAL(20, 10)">
+			<column name="profitbeforetax" type="decimal">
 
 			</column>
 
 
-			<column name="profitlossforperiod" type="DECIMAL(20, 10)">
+			<column name="profitlossforperiod" type="decimal">
 
 			</column>
 
 
 			<column name="profitlossforperiodfromcontinuingoperations"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
 			<column name="profitlossfromdiscontinuedoperationsaftertax"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
 			<column name="profitlossfromdiscontinuedoperationsbeforetax"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
 
-			<column name="purchasesofstockintrade" type="DECIMAL(20, 10)">
+			<column name="purchasesofstockintrade" type="decimal">
 
 			</column>
 
 
-			<column name="reportingquarter" type="DECIMAL(20, 10)">
+			<column name="reportingquarter" type="decimal">
 
 			</column>
 
 
-			<column name="revenuefromoperations" type="DECIMAL(20, 10)">
+			<column name="revenuefromoperations" type="decimal">
 
 			</column>
 
 
 			<column
 				name="shareofprofitlossofassociatesandjointventuresaccountedforusi"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 
@@ -324,13 +324,13 @@
 			</column>
 
 
-			<column name="taxexpense" type="DECIMAL(20, 10)">
+			<column name="taxexpense" type="decimal">
 
 			</column>
 
 
 			<column name="taxexpenseofdiscontinuedoperations"
-				type="DECIMAL(20, 10)">
+				type="decimal">
 
 			</column>
 

@@ -2,7 +2,6 @@ package com.getbullish.centralProcessingEngine.nseXMLparser;
 
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +10,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.beanutils.converters.DateConverter;
 import org.apache.commons.beanutils.converters.DateTimeConverter;
+import org.hibernate.exception.DataException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,7 +40,7 @@ public class ProcessJSONintoDBFields {
 
   public void processJSONintoEntity() {
     List<QuarterlyFilingJSONEntity> list = filingrepo.findAll();
-    List<QuarterlyFinaceRecords> financerecords = new ArrayList<QuarterlyFinaceRecords>();
+    // List<QuarterlyFinaceRecords> financerecords = new ArrayList<QuarterlyFinaceRecords>();
 
     for (QuarterlyFilingJSONEntity entity : list) {
       String str = entity.getJson();
@@ -49,7 +49,11 @@ public class ProcessJSONintoDBFields {
 
       JSONObject symbol = (JSONObject) json.get("in-bse-fin:Symbol");
 
-      Stock stock = stockserv.findbySymbol(symbol.getString("content"));
+      String sym = symbol.getString("content");
+//      if (!sym.equalsIgnoreCase("RELIANCE")) {
+//        continue;
+//      }
+      Stock stock = stockserv.findbySymbol(sym);
 
 
       Map<String, String> map = getasmap(json);
@@ -59,7 +63,7 @@ public class ProcessJSONintoDBFields {
       //
       // }
 
-      log.info("===");
+
       QuarterlyFinaceRecords finrec = new QuarterlyFinaceRecords();
       try {
         finrec = setter(finrec, map);
@@ -78,6 +82,10 @@ public class ProcessJSONintoDBFields {
       // if (ispresent != null)
       try {
         repo.save(finrec);
+      }
+
+      catch (DataException e) {
+        log.error("--#SAVE ERROR--DataException--" + e.getErrorCode() + e.getMessage());
       } catch (Exception e) {
         log.error(
             "skipping a recode : #save" + e.getMessage() + e.getClass().toString() + e.getCause());
@@ -119,7 +127,7 @@ public class ProcessJSONintoDBFields {
           // log.info(key + " has a value " + valueasstring);
           return valueasstring;
         } catch (Exception e) {
-          log.error("--Error retriving :" + key + e.getMessage());
+          // log.error("--Error retriving :" + key + e.getMessage());
           return "";
         }
 

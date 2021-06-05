@@ -17,4 +17,11 @@ public interface HistoryRepo extends Baserepo<HistoryEntity, UUID> {
   List<HistoryEntity> findByStock(Stock stock);
 
 
+
+  HistoryEntity findFirstByStockOrderByDate(Stock stock);
+
+  HistoryEntity findFirstByStockOrderByDateDesc(Stock stock);
+
+
+
 }

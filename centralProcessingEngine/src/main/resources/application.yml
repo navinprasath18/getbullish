@@ -25,3 +25,11 @@ spring:
       default-schema: stockmarketdata
 server: 
    port: 5555
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

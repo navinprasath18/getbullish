@@ -4,14 +4,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.json.JSONObject;
 
-public class LoadJSONintoENtityTEst {
+public class LoadJSONintoENtitygenerate {
 
   public static void main(String args[]) {
 
     String jsonstr = SampleJSON.json;
     JSONObject json = new JSONObject(jsonstr);
-    // find(json);
-    genliquibase(json);
+    find(json);
+   // genliquibase(json);
   }
 
 
@@ -30,7 +30,7 @@ public class LoadJSONintoENtityTEst {
 
 
     for (String x : list) {
-      System.out.println("@Column(name = \"" + (x.length() < 60 ? x : x.substring(0, 60)) + "\")");
+      System.out.println("@Column(name = \"" + ((x.length() < 60 ? x : x.substring(0, 60))).toLowerCase() + "\")");
       System.out.println("Double" + " " + x.substring(0, 1).toLowerCase() + x.substring(1) + ";");
 
       System.out.println("");
@@ -49,7 +49,7 @@ public class LoadJSONintoENtityTEst {
 
     // <column name="stock" type="UUID"> <constraints nullable="false" /></column>
     for (String x : list) {
-
+      x = x.toLowerCase();
       System.out.println("<column name=\"" + (x.length() < 60 ? x : x.substring(0, 60))
           + "\" type=\"DECIMAL(20, 10)\"> <constraints nullable=\"false\" /></column>");
 
@@ -57,5 +57,8 @@ public class LoadJSONintoENtityTEst {
       System.out.println("");
     }
   }
+  
+  
+ 
 
 }

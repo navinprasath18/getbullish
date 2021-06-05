@@ -4,7 +4,10 @@ import java.time.Year;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import com.getbullish.centralProcessingEngine.Entities.EntityIdentity;
 import com.getbullish.centralProcessingEngine.Entities.Stock;
@@ -24,220 +27,223 @@ public class QuarterlyFinaceRecords extends EntityIdentity {
    */
   private static final long serialVersionUID = 1L;
 
-
-  @JoinColumn(name = "id", nullable = false)
+  @OneToOne
+  @JoinColumn(name = "stock", nullable = false)
   Stock stock;
 
-  @Column(name = "")
-  Quarter quarter;
+  @Column(name = "quarter")
+  String quarter;
 
-  @Column(name = "")
-  Year year;
+  @Column(name = "year")
+  String year;
 
-  @Column(name = "")
+  @Column(name = "cumulative")
   boolean cumulative;
 
-  @Column(name = "")
+  @Column(name = "consolidated")
   boolean consolidated;
 
+  @Column(name = "audited")
+  boolean audited;
 
-  @Column(name = "BasicEarningsLossPerShareFromContinuingAndDiscontinuedOperat")
+
+  @Column(name = "basicearningslosspersharefromcontinuinganddiscontinuedoperat")
   Double basicEarningsLossPerShareFromContinuingAndDiscontinuedOperations;
 
 
-  @Column(name = "BasicEarningsLossPerShareFromContinuingOperations")
+  @Column(name = "basicearningslosspersharefromcontinuingoperations")
   Double basicEarningsLossPerShareFromContinuingOperations;
 
 
-  @Column(name = "BasicEarningsLossPerShareFromDiscontinuedOperations")
+  @Column(name = "basicearningslosspersharefromdiscontinuedoperations")
   Double basicEarningsLossPerShareFromDiscontinuedOperations;
 
 
-  @Column(name = "ChangesInInventoriesOfFinishedGoodsWorkInProgressAndStockInT")
+  @Column(name = "changesininventoriesoffinishedgoodsworkinprogressandstockint")
   Double changesInInventoriesOfFinishedGoodsWorkInProgressAndStockInTrade;
 
 
-  @Column(name = "ComprehensiveIncomeForThePeriod")
+  @Column(name = "comprehensiveincomefortheperiod")
   Double comprehensiveIncomeForThePeriod;
 
 
-  @Column(name = "ComprehensiveIncomeForThePeriodAttributableToOwnersOfParent")
+  @Column(name = "comprehensiveincomefortheperiodattributabletoownersofparent")
   Double comprehensiveIncomeForThePeriodAttributableToOwnersOfParent;
 
 
-  @Column(name = "ComprehensiveIncomeForThePeriodAttributableToOwnersOfParentN")
+  @Column(name = "comprehensiveincomefortheperiodattributabletoownersofparentn")
   Double comprehensiveIncomeForThePeriodAttributableToOwnersOfParentNonControllingInterests;
 
 
-  @Column(name = "CostOfMaterialsConsumed")
+  @Column(name = "costofmaterialsconsumed")
   Double costOfMaterialsConsumed;
 
 
-  @Column(name = "CurrentTax")
+  @Column(name = "currenttax")
   Double currentTax;
 
 
-  @Column(name = "DateOfEndOfFinancialYear")
+  @Column(name = "dateofendoffinancialyear")
   Date dateOfEndOfFinancialYear;
 
 
-  @Column(name = "DateOfEndOfReportingPeriod")
+  @Column(name = "dateofendofreportingperiod")
   Date dateOfEndOfReportingPeriod;
 
 
-  @Column(name = "DateOfStartOfFinancialYear")
+  @Column(name = "dateofstartoffinancialyear")
   Date dateOfStartOfFinancialYear;
 
 
-  @Column(name = "DateOfStartOfReportingPeriod")
+  @Column(name = "dateofstartofreportingperiod")
   Date dateOfStartOfReportingPeriod;
 
 
-  @Column(name = "DateOnWhichPriorIntimationOfTheMeetingForConsideringFinancia")
+  @Column(name = "dateonwhichpriorintimationofthemeetingforconsideringfinancia")
   Date dateOnWhichPriorIntimationOfTheMeetingForConsideringFinancialResultsWasInformedToTheExchange;
 
 
-  @Column(name = "DeferredTax")
+  @Column(name = "deferredtax")
   Double deferredTax;
 
 
-  @Column(name = "DepreciationDepletionAndAmortisationExpense")
+  @Column(name = "depreciationdepletionandamortisationexpense")
   Double depreciationDepletionAndAmortisationExpense;
 
 
-  @Column(name = "DescriptionOfOtherExpenses")
+  @Column(name = "descriptionofotherexpenses")
   Double descriptionOfOtherExpenses;
 
 
-  @Column(name = "DescriptionOfPresentationCurrency")
+  @Column(name = "descriptionofpresentationcurrency")
   Double descriptionOfPresentationCurrency;
 
 
-  @Column(name = "DescriptionOfSingleSegment")
+  @Column(name = "descriptionofsinglesegment")
   Double descriptionOfSingleSegment;
 
 
-  @Column(name = "DilutedEarningsLossPerShareFromContinuingAndDiscontinuedOper")
+  @Column(name = "dilutedearningslosspersharefromcontinuinganddiscontinuedoper")
   Double dilutedEarningsLossPerShareFromContinuingAndDiscontinuedOperations;
 
 
-  @Column(name = "DilutedEarningsLossPerShareFromContinuingOperations")
+  @Column(name = "dilutedearningslosspersharefromcontinuingoperations")
   Double dilutedEarningsLossPerShareFromContinuingOperations;
 
 
-  @Column(name = "DilutedEarningsLossPerShareFromDiscontinuedOperations")
+  @Column(name = "dilutedearningslosspersharefromdiscontinuedoperations")
   Double dilutedEarningsLossPerShareFromDiscontinuedOperations;
 
 
-  @Column(name = "EmployeeBenefitExpense")
+  @Column(name = "employeebenefitexpense")
   Double employeeBenefitExpense;
 
 
-  @Column(name = "ExceptionalItemsBeforeTax")
+  @Column(name = "exceptionalitemsbeforetax")
   Double exceptionalItemsBeforeTax;
 
 
-  @Column(name = "Expenses")
+  @Column(name = "expenses")
   Double expenses;
 
 
-  @Column(name = "FaceValueOfEquityShareCapital")
+  @Column(name = "facevalueofequitysharecapital")
   Double faceValueOfEquityShareCapital;
 
 
-  @Column(name = "FinanceCosts")
+  @Column(name = "financecosts")
   Double financeCosts;
 
 
-  @Column(name = "Income")
+  @Column(name = "income")
   Double income;
 
 
-  @Column(name = "IsCompanyReportingMultisegmentOrSingleSegment")
+  @Column(name = "iscompanyreportingmultisegmentorsinglesegment")
   String isCompanyReportingMultisegmentOrSingleSegment;
 
 
-  @Column(name = "LevelOfRoundingUsedInFinancialStatements")
+  @Column(name = "levelofroundingusedinfinancialstatements")
   String levelOfRoundingUsedInFinancialStatements;
 
 
-  @Column(name = "NatureOfReportStandaloneConsolidated")
+  @Column(name = "natureofreportstandaloneconsolidated")
   String natureOfReportStandaloneConsolidated;
 
 
-  @Column(name = "NetMovementInRegulatoryDeferralAccountBalancesRelatedToProfi")
+  @Column(name = "netmovementinregulatorydeferralaccountbalancesrelatedtoprofi")
   Double netMovementInRegulatoryDeferralAccountBalancesRelatedToProfitOrLossAndTheRelatedDeferredTaxMovement;
 
 
-  @Column(name = "OtherComprehensiveIncomeNetOfTaxes")
+  @Column(name = "othercomprehensiveincomenetoftaxes")
   Double otherComprehensiveIncomeNetOfTaxes;
 
 
-  @Column(name = "OtherExpenses")
+  @Column(name = "otherexpenses")
   Double otherExpenses;
 
 
-  @Column(name = "OtherIncome")
+  @Column(name = "otherincome")
   Double otherIncome;
 
 
-  @Column(name = "PaidUpValueOfEquityShareCapital")
+  @Column(name = "paidupvalueofequitysharecapital")
   Double paidUpValueOfEquityShareCapital;
 
 
-  @Column(name = "ProfitBeforeExceptionalItemsAndTax")
+  @Column(name = "profitbeforeexceptionalitemsandtax")
   Double profitBeforeExceptionalItemsAndTax;
 
 
-  @Column(name = "ProfitBeforeTax")
+  @Column(name = "profitbeforetax")
   Double profitBeforeTax;
 
 
-  @Column(name = "ProfitLossForPeriod")
+  @Column(name = "profitlossforperiod")
   Double profitLossForPeriod;
 
 
-  @Column(name = "ProfitLossForPeriodFromContinuingOperations")
+  @Column(name = "profitlossforperiodfromcontinuingoperations")
   Double profitLossForPeriodFromContinuingOperations;
 
 
-  @Column(name = "ProfitLossFromDiscontinuedOperationsAfterTax")
+  @Column(name = "profitlossfromdiscontinuedoperationsaftertax")
   Double profitLossFromDiscontinuedOperationsAfterTax;
 
 
-  @Column(name = "ProfitLossFromDiscontinuedOperationsBeforeTax")
+  @Column(name = "profitlossfromdiscontinuedoperationsbeforetax")
   Double profitLossFromDiscontinuedOperationsBeforeTax;
 
 
-  @Column(name = "PurchasesOfStockInTrade")
+  @Column(name = "purchasesofstockintrade")
   Double purchasesOfStockInTrade;
 
 
-  @Column(name = "ReportingQuarter")
+  @Column(name = "reportingquarter")
   Double reportingQuarter;
 
 
-  @Column(name = "RevenueFromOperations")
+  @Column(name = "revenuefromoperations")
   Double revenueFromOperations;
 
 
-  @Column(name = "ShareOfProfitLossOfAssociatesAndJointVenturesAccountedForUsi")
+  @Column(name = "shareofprofitlossofassociatesandjointventuresaccountedforusi")
   Double shareOfProfitLossOfAssociatesAndJointVenturesAccountedForUsingEquityMethod;
 
 
-  // @Column(name = "Symbol")
-  // String symbol;
+  @Column(name = "symbol")
+  String symbol;
 
 
-  @Column(name = "TaxExpense")
+  @Column(name = "taxexpense")
   Double taxExpense;
 
 
-  @Column(name = "TaxExpenseOfDiscontinuedOperations")
+  @Column(name = "taxexpenseofdiscontinuedoperations")
   Double taxExpenseOfDiscontinuedOperations;
 
 
-  @Column(name = "WhetherResultsAreAuditedOrUnaudited")
+  @Column(name = "whetherresultsareauditedorunaudited")
   String whetherResultsAreAuditedOrUnaudited;
 
 

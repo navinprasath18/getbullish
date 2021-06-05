@@ -37,8 +37,8 @@ public class CSVfinderService {
   LoaderService service;
 
   public List<String> get() {
- //   String folderDir = "/users/i355696/Documents/NSE-DATA/SAMPLEHISTORY/";
-    
+    // String folderDir = "/users/i355696/Documents/NSE-DATA/SAMPLEHISTORY/";
+
     String folderDir = "/users/i355696/Documents/NSE-DATA/COMPLETEDATA/";
 
     log.info("Getting sub folders in the directory");
@@ -108,12 +108,14 @@ public class CSVfinderService {
 
 
 
+  @SuppressWarnings("unused")
   private void validateFields(Map<Integer, String> fields) {
 
   }
 
 
 
+  @SuppressWarnings("unused")
   private List<String> processlist(List<String> listoffolders) {
 
     List<String> directoryList = new ArrayList<String>();

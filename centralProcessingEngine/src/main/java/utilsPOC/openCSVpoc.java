@@ -59,6 +59,7 @@ public class openCSVpoc {
   }
 
 
+  @SuppressWarnings("resource")
   public static void readasMap() {
 
     var fileName = "/users/i355696/Documents//NSE-DATA/SECTORWISE/ind_nifty500list.csv";

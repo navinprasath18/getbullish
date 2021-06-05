@@ -63,7 +63,7 @@ public class HistoryEntity extends EntityIdentity {
 
   @OneToOne
   @JoinColumn(name = "stock", nullable = false)
-  Stock stockid;
+  Stock stock;
 
   @Column(name = "date")
   Date date;

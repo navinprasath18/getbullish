@@ -74,7 +74,7 @@ public class ProcessAndSaveService {
       if (loaded == null)
         continue;
       history.setDate(calculateDate(csv.getFilename()));
-      history.setStockid(stockbysymbol);
+      history.setStock(stockbysymbol);
       history.setSeries(fields.get(2).trim());
       history.setPreviousClose(Double.parseDouble(fields.get(5).trim()));
       history.setOpenPrice(Double.parseDouble(fields.get(6).trim()));

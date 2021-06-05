@@ -15,7 +15,7 @@ import lombok.ToString;
 @Setter
 @ToString(includeFieldNames = true)
 @Entity
-public class History extends EntityIdentity {
+public class HistoryEntity extends EntityIdentity {
 
   /**
    * 

@@ -22,43 +22,43 @@
 				<constraints nullable="false" />
 			</column>
 
-			<column name="marketcap" type="DECIMAL(20, 10)">
+			<column name="marketcap" type="decimal">
 
 			</column>
-			<column name="price" type="DECIMAL(20, 10)">
+			<column name="price" type="decimal">
 			</column>
 
-			<column name="HI_52_WK" type="DECIMAL(20, 10)">
+			<column name="high52week" type="decimal">
 			</column>
 
-			<column name="LO_52_WK" type="DECIMAL(20, 10)">
+			<column name="low52week" type="decimal">
 			</column>
 
-			<column name="pe" type="DECIMAL(20, 10)">
+			<column name="pe" type="decimal">
 			</column>
 
-			<column name="bookvalue" type="DECIMAL(20, 10)">
+			<column name="bookvalue" type="decimal">
 			</column>
 
-			<column name="dividentyield" type="DECIMAL(20, 10)">
+			<column name="dividentyield" type="decimal">
 			</column>
 
-			<column name="rose" type="DECIMAL(20, 10)">
+			<column name="rose" type="decimal">
 			</column>
 
-			<column name="roe" type="DECIMAL(20, 10)">
+			<column name="roe" type="decimal">
 			</column>
 
-			<column name="facevalue" type="DECIMAL(20, 10)">
+			<column name="facevalue" type="decimal">
 			</column>
 
-			<column name="gainfrom52" type="DECIMAL(20, 10)">
+			<column name="gainfrom52" type="decimal">
 			</column>
 
-			<column name="pricetobook" type="DECIMAL(20, 10)">
+			<column name="pricetobook" type="decimal">
 			</column>
 
-			<column name="numberofscreens" type="DECIMAL(20, 10)">
+			<column name="numberofscreens" type="decimal">
 			</column>
 
 			<column name="pros" type="varchar(1000)">

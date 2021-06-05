@@ -2,6 +2,7 @@ package com.getbullish.centralProcessingEngine.Entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -38,4 +39,7 @@ public class Stock extends EntityIdentity {
 
   @Column(name = "isincode")
   String isincode;
+
+  @OneToOne(fetch = FetchType.EAGER, mappedBy = "stock")
+  StockDataEntity stockdata;
 }

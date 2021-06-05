@@ -15,7 +15,7 @@ import lombok.ToString;
 @Setter
 @ToString(includeFieldNames = true)
 @Entity
-public class History extends EntityIdentity {
+public class HistoryEntity extends EntityIdentity {
 
   /**
    * 
@@ -63,7 +63,7 @@ public class History extends EntityIdentity {
 
   @OneToOne
   @JoinColumn(name = "stock", nullable = false)
-  Stock stockid;
+  Stock stock;
 
   @Column(name = "date")
   Date date;

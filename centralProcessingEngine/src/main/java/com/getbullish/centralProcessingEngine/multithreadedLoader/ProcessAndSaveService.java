@@ -10,7 +10,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import com.getbullish.centralProcessingEngine.Entities.History;
+import com.getbullish.centralProcessingEngine.Entities.HistoryEntity;
 import com.getbullish.centralProcessingEngine.Entities.LoadedFileDetails;
 import com.getbullish.centralProcessingEngine.Entities.Stock;
 import com.getbullish.centralProcessingEngine.NseCSVDataReaderSeevice.CSVreader;
@@ -55,7 +55,7 @@ public class ProcessAndSaveService {
       return;
     }
 
-    List<History> historyList = new ArrayList<History>();
+    List<HistoryEntity> historyList = new ArrayList<HistoryEntity>();
     List<CSVrow> row = csv.getRows();
     int i = 0;
     for (CSVrow r : row) {
@@ -63,7 +63,7 @@ public class ProcessAndSaveService {
         continue;
       Map<Integer, String> fields = r.getFields();
 
-      History history = new History();
+      HistoryEntity history = new HistoryEntity();
       Stock stockbysymbol = stockService.findbySymbol(fields.get(3));
       if (stockbysymbol == null)
         continue;
@@ -74,7 +74,7 @@ public class ProcessAndSaveService {
       if (loaded == null)
         continue;
       history.setDate(calculateDate(csv.getFilename()));
-      history.setStockid(stockbysymbol);
+      history.setStock(stockbysymbol);
       history.setSeries(fields.get(2).trim());
       history.setPreviousClose(Double.parseDouble(fields.get(5).trim()));
       history.setOpenPrice(Double.parseDouble(fields.get(6).trim()));

@@ -8,5 +8,6 @@ public class URLutils {
   public static final String initialData = "initialdata";
   public static final String loadhistory = "loadhistory";
   public static final String quarterlyresults = "quarterlyresults";
+  public static final String scheduledthread = "scheduledthread";
 
 }

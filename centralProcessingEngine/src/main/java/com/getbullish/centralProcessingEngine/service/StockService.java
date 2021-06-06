@@ -18,4 +18,6 @@ public interface StockService extends BaseService<Stock, StockData> {
 
   Stock findbyISINid(String isinid);
 
+  StockData getbySymbol(String symbol);
+
 }

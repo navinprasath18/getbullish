@@ -1,6 +1,5 @@
 package com.getbullish.centralProcessingEngine.data;
 
-import com.getbullish.centralProcessingEngine.Entities.Stock;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -14,8 +13,6 @@ public class StockDataDTO extends DataIdentity {
    */
   private static final long serialVersionUID = 1L;
 
-
-  Stock stock;
 
 
   Double marketcap;

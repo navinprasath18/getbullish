@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import com.getbullish.centralProcessingEngine.Entities.Stock;
 import com.getbullish.centralProcessingEngine.config.URLutils;
 import com.getbullish.centralProcessingEngine.data.StockData;
 import com.getbullish.centralProcessingEngine.service.StockService;
@@ -39,8 +38,9 @@ public class StockController {
 
   @GetMapping("{stocksymbol}")
   @ResponseStatus(HttpStatus.OK)
-  public Stock getstockbySymbol(@PathVariable String stocksymbol) {
-    return service.findbySymbol(stocksymbol.toUpperCase());
-  }
+  public StockData getstockbySymbol(@PathVariable String stocksymbol) {
+    return service.getbySymbol(stocksymbol);
 
+
+  }
 }

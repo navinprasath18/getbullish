@@ -16,5 +16,6 @@ public class StockData extends DataIdentity {
   String security;
   String series;
   String isincode;
+  StockDataDTO stockdata;
 
 }

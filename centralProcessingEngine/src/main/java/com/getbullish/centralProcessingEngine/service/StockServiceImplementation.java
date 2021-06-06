@@ -84,5 +84,13 @@ public class StockServiceImplementation extends BaseServiceImpl<Stock, StockData
   public Stock findbyISINid(String isinid) {
     return repo.findByIsincodeIgnoreCase(isinid);
   }
+  
+  @Override
+  public StockData getbySymbol(String symbol) {
+    
+    return mapToData(repo.findBySymbolIgnoreCase(symbol));
+    
+
+  }
 
 }
